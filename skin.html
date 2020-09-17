@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta
       name="viewport"
-      content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 
@@ -19,52 +19,201 @@
       title="[##_title_##]"
       href="[##_rss_url_##]"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- CSS -->
     <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body id="[##_body_id_##]">
+    <s_t3>
+      <div class="container-fluid" id="container">
+        <!-- Side Menu -->
+        <div id="side_menu" class="row">
+          <div class="col-12 mt-3">
+            <!-- Profile-->
+            <div id="profile">
+              <img
+                src="[##_image_##]"
+                class="rounded mx-auto d-block"
+                alt="profile image"
+              />
+            </div>
+
+            <!-- Blog Menu -->
+            <div id="blog_menu" class="mt-3">
+              <h6>Blog Menu</h6>
+              [##_blog_menu_##]
+            </div>
+
+            <hr />
+
+            <!-- Category -->
+            <div id="category">
+              <h6>Category</h6>
+              [##_category_list_##]
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Contents -->
+        <div id="main_contents" class="row">
+          <div class="col-sm">
+            <div class="row">
+              <div class="col-12 col-xl-9 p-4">
+                <div>
+                  <s_article_rep>
+                    <!-- 홈 화면 -->
+                    <s_index_article_rep>
+                      <div class="list_content">
+                        <s_article_rep_thumbnail>
+                          <img src="[##_article_rep_thumbnail_url_##]" />
+                        </s_article_rep_thumbnail>
+
+                        <a href="[##_article_rep_link_##]" class="link_post">
+                          <strong class="tit_post"
+                            >[##_article_rep_title_##]</strong
+                          >
+                          <p class="txt_post">[##_article_rep_summary_##]</p>
+                        </a>
+
+                        <div class="detail_info">
+                          <a
+                            href="[##_article_rep_category_link_##]"
+                            class="link_cate"
+                          >
+                            [##_article_rep_category_##]
+                          </a>
+                          <span class="txt_bar"></span>
+                          [##_article_rep_date_##]
+                        </div>
+                      </div>
+                    </s_index_article_rep>
+
+                    <!-- 글 페이지 -->
+                    <s_permalink_article_rep>
+                      <div class="titleWrap">
+                        <h2>
+                          <a href="[##_article_rep_link_##]"
+                            >[##_article_rep_title_##]</a
+                          >
+                        </h2>
+                        <div class="category">
+                          <a href="[##_article_rep_category_link_##]"
+                            >[##_article_rep_category_##]</a
+                          >
+                        </div>
+                        <div class="date">[##_article_rep_date_##]</div>
+                      </div>
+
+                      <div class="article">[##_article_rep_desc_##]</div>
+                    </s_permalink_article_rep>
+                  </s_article_rep>
+                </div>
+              </div>
+
+              <div id="sidebar" class="col-12 col-xl-3 p-4">
+                <s_sidebar>
+                  <!-- 공지사항 -->
+                  <s_sidebar_element>
+                    <s_rct_notice>
+                      <div class="notice card mb-4">
+                        <div class="card-body">
+                          <h6 class="card-title">NOTICE</h6>
+                          <ul>
+                            <s_rct_notice_rep>
+                              <li>
+                                <a href="[##_notice_rep_link_##]"
+                                  >[##_notice_rep_title_##]</a
+                                >
+                              </li>
+                            </s_rct_notice_rep>
+                          </ul>
+                        </div>
+                      </div>
+                    </s_rct_notice>
+                  </s_sidebar_element>
+
+                  <!-- 최근에 올라온 글 -->
+                  <s_sidebar_element>
+                    <div class="recentPost card mb-4">
+                      <div class="card-body">
+                        <h6 class="card-title">RECENT POST</h6>
+                        <ul>
+                          <s_rctps_rep>
+                            <li>
+                              <a href="[##_rctps_rep_link_##]"
+                                >[##_rctps_rep_title_##]</a
+                              >
+                              <span class="cnt">[##_rctps_rep_rp_cnt_##]</span>
+                              <s_rctps_rep_thumbnail>
+                                <img src="[##_rctps_rep_thumbnail_##]" />
+                              </s_rctps_rep_thumbnail>
+                              <a href="[##_rctps_rep_category_link_##]"
+                                >[##_rctps_rep_category_##]</a
+                              >
+                            </li>
+                          </s_rctps_rep>
+                        </ul>
+                      </div>
+                    </div>
+                  </s_sidebar_element>
+
+                  <!-- 이 블로그 인기글 -->
+                  <s_sidebar_element>
+                    <div class="popularPost card">
+                      <div class="card-body">
+                        <h6 class="card-title">POPULAR POST</h6>
+                        <ul>
+                          <s_rctps_popular_rep>
+                            <li>
+                              <a href="[##_rctps_rep_link_##]"
+                                >[##_rctps_rep_title_##]</a
+                              >
+                              <span class="cnt">[##_rctps_rep_rp_cnt_##]</span>
+                              <s_rctps_rep_thumbnail>
+                                <img src="[##_rctps_rep_thumbnail_##]" />
+                              </s_rctps_rep_thumbnail>
+                              <a href="[##_rctps_rep_category_link_##]"
+                                >[##_rctps_rep_category_##]</a
+                              >
+                            </li>
+                          </s_rctps_popular_rep>
+                        </ul>
+                      </div>
+                    </div>
+                  </s_sidebar_element>
+                </s_sidebar>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </s_t3>
 
     <!-- Javascripts -->
-  </head>
-  <body id="[##_body_id_##]" class="[##_var_headerslogundisplay_##]">
-    <s_t3>
-      <!-- 윗 컨테이너 -->
-      <div id="upper_container">
-        <!-- 사이드메뉴 -->
-        <menu id="side_container">
-          <!-- profile -->
-          <div id="profile_wrapper" class="menu_item">
-            <img src="[##_image_##]" alt="Profile Image" />
-          </div>
-          <!-- //profile -->
-
-          <!-- Description -->
-          <div id="description_wrapper" class="menu_item">
-            <p><a href="[##_blog_link_##]">[##_title_##]</a></p>
-            <p>[##_desc_##]</p>
-          </div>
-          <!-- //Description -->
-
-          <!-- menu items-->
-          <div id="menu_items_wrapper" class="menu_item">
-            [##_category_list_##]
-          </div>
-          <!-- //menu items-->
-        </menu>
-        <!-- //side menu-->
-
-        <!-- 메인 컨텐츠 -->
-        <div id="main_container">
-          <header>[##_blog_menu_##]</header>
-
-          <!-- main -->
-          <main id="main_content_wrapper">Main</main>
-          <!-- //main -->
-        </div>
-        <!-- //메인 컨텐츠 -->
-      </div>
-      <!-- //윗 컨테이너 -->
-
-      <footer id="footer">Footer</footer>
-    </s_t3>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
