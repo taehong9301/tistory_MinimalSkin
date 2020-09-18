@@ -1,6 +1,10 @@
 @charset "utf-8";
 
 /* Common */
+::selection {
+  background-color: #74c0fc;
+  color: #f9fafd;
+}
 body {
   margin: auto;
   font-family: "Noto Sans", sans-serif;
@@ -141,6 +145,7 @@ main #main_contents_container {
 }
 #post_area .list_content {
   margin: 10px 0;
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
