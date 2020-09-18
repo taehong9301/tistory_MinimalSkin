@@ -3,16 +3,49 @@
 /* Common */
 body {
   margin: auto;
-  font-family: "Nanum Gothic", sans-serif;
+  font-family: "Noto Sans", sans-serif;
   font-size: 1.1em;
+  background-color: #f9fafd;
 }
+
+/* Common - a tag */
 a {
-  color: #868e96 !important;
-  text-decoration: none !important;
+  text-decoration: none;
 }
 a:hover {
-  color: #343a40 !important;
-  text-decoration: none !important;
+  text-decoration: none;
+}
+
+/* Common - sub title */
+h6 {
+  padding: 10px 0;
+  margin: 0;
+}
+
+/* Common - Shadow */
+.shadow {
+  box-shadow: 3px 7px 7px #adb5bd;
+}
+
+/* Common - Divider */
+.divider {
+  border-color: #74c0fc;
+  width: 80%;
+  margin: 20px auto;
+}
+
+/* Common - Panel */
+.panel {
+  background-color: #ffffff;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  padding: 0 20px;
+}
+.panel > .panel_header {
+  padding: 5px 0;
+}
+.panel > .panel_body {
+  padding: 10px 0;
 }
 
 /* Container */
@@ -20,66 +53,133 @@ a:hover {
   display: flex;
 }
 
-#container h6 {
-  font-size: 0.7em;
-  color: #adb5bd;
+/* header */
+header {
 }
 
-/* Side Menu */
-#side_menu {
+/* sidebar */
+#sidebar_wrapper {
   width: 320px;
-  top: 0;
   position: sticky;
-  border-right: 1px solid #e3ebf6;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
+  top: 0;
+  left: 0;
+  height: calc(100vh - 30px);
   overflow-y: scroll;
+  padding: 15px;
+  font-size: 0.9em;
 }
-#side_menu ul {
+#sidebar {
+  background-image: linear-gradient(-45deg, #74c0fc, #1971c2);
+  padding: 10px;
+  min-height: calc(100vh - 50px);
+  height: auto;
+  border-radius: 10px;
+}
+#sidebar ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-
-/* Side Menu - Profile */
-#side_menu #profile img {
-  width: 70%;
-  height: auto;
+#sidebar a,
+#sidebar h6 {
+  color: #e7f5ff;
 }
 
-/* Side Menu - Blog Menu */
-#side_menu #blog_menu a {
-  display: inline-block;
-  padding: 5px 0;
-}
-
-/* Side Menu - Category */
-#side_menu #category {
-}
-#side_menu #category ul {
-}
-#side_menu #category ul.tt_category a.link_tit {
-}
-#side_menu #category ul li a.link_item::before {
-  content: "+";
-}
-#side_menu #category ul li a.link_item {
-  display: inline-block;
-  padding: 5px 0;
-}
-#side_menu #category ul li a.link_sub_item {
-  display: inline-block;
-  padding: 5px 15px;
-}
-
-/* Main Contents */
-#main_contents {
+/* Main */
+main {
   flex: 1;
-  background-color: #edf2f9;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  justify-content: center;
 }
-#main_contents img {
+main img {
   width: 100%;
 }
-#post_wrapper {
+
+/* Main - Main Container */
+main #main_contents_container {
+  display: flex;
+}
+
+/* Main - Main Container - Main Contents */
+#main_contents_container #main_contents {
+  flex: 1;
+  padding-right: 10px;
+}
+
+/* Main Container - Main Contents - Search */
+#main_contents .search {
+  margin-bottom: 10px;
+}
+#main_contents .search .search_input {
+  border-radius: 30px;
+  padding: 10px;
+  width: 30%;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+  outline: none;
+  border: 2px solid #1971c2;
+  font-weight: bold;
+}
+#main_contents .search .search_input:focus {
+  width: 80%;
+}
+#main_contents .search .search_submit {
+  display: none;
+}
+
+/* Main Container - Main Contents - Post Area */
+#post_area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 10px;
+}
+#post_area .list_content {
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#post_area .list_content .thumbnail_wrapper {
+  width: 180px;
+  height: 180px;
+  overflow: hidden;
+}
+#post_area .list_content .thumbnail_wrapper img {
+  position: relative;
+  left: -37.5%;
+  width: auto;
+  height: 200px;
+}
+#post_area .list_content .summary_wrapper {
+  flex: 1;
+  padding: 0 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+#post_area .list_content .summary_wrapper h4.summary_title {
+  padding: 0;
+  margin: 0 0 10px 0;
+}
+#post_area .list_content .summary_wrapper .summary_info {
+  font-size: 0.7em;
+}
+#post_area .list_content .summary_wrapper .summary_post {
+  font-size: 0.8em;
+}
+
+/* Main - Main Container - Sub Menu */
+#main_contents_container #sub_menu {
+  width: 320px;
+}
+#main_contents_container #sub_menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
