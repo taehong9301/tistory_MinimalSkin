@@ -111,8 +111,70 @@
                       </div>
                     </div>
 
+                    <!-- Board Post -->
                     <div class="board_post_content">
                       [##_article_rep_desc_##]
+                    </div>
+
+                    <!-- Comment -->
+                    <div class="board_comment">
+                      <s_rp>
+                        <h6>COMMENT</h6>
+                        <div class="board_comment_write_form">
+                          <s_rp_input_form>
+                            <!-- 계정정보 입력 폼 -->
+                            <s_rp_member>
+                              <s_rp_guest>
+                                <div class="write_info_form">
+                                  <input
+                                    type="text"
+                                    name="[##_rp_input_name_##]"
+                                    placeholder="Username"
+                                    value="[##_guest_name_##]"
+                                  />
+                                  <input
+                                    type="password"
+                                    placeholder="Password"
+                                    maxlength="8"
+                                    name="[##_rp_input_password_##]"
+                                    value="[##_rp_admin_check_##]"
+                                  />
+                                  <input
+                                    type="text"
+                                    class="homepage"
+                                    placeholder="Homepage"
+                                    name="[##_rp_input_homepage_##]"
+                                    value="[##_guest_homepage_##]"
+                                  />
+                                </div>
+                              </s_rp_guest>
+
+                              <!-- 비밀글 여부 폼 -->
+                              <div class="write_secret_form">
+                                <label for="secret"> 비밀글 </label>
+                                <input
+                                  type="checkbox"
+                                  name="[##_rp_input_is_secret_##]"
+                                  class="checkbox"
+                                />
+                              </div>
+                            </s_rp_member>
+
+                            <!-- 댓글 입력 폼 -->
+                            <div class="write_comment_form">
+                              <textarea
+                                name="[##_rp_input_comment_##]"
+                              ></textarea>
+                              <input
+                                type="submit"
+                                value="댓글 달기"
+                                onclick="[##_rp_onclick_submit_##]"
+                              />
+                            </div>
+                          </s_rp_input_form>
+                        </div>
+                        <div class="commentWrite">18-6-2 글쓰기</div>
+                      </s_rp>
                     </div>
                   </div>
                 </s_permalink_article_rep>

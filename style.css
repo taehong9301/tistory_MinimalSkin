@@ -27,7 +27,7 @@ a:hover {
 .container {
   display: flex;
   flex-direction: column;
-  max-width: 1300px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 .contents_area {
@@ -118,6 +118,7 @@ header ul li {
 /* Main - Main */
 main {
   flex: 1;
+  padding: 10px;
 }
 main img {
   width: 100%;
@@ -135,8 +136,8 @@ main img {
   padding: 10px;
 }
 .home_post_img {
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   overflow: hidden;
 }
 .home_post_img img {
@@ -165,7 +166,6 @@ main img {
 .board_post_wrapper {
 }
 .board_post_wrapper .board_post_title {
-  padding: 10px;
 }
 .board_post_wrapper .board_post_title h2 {
   font-weight: bold;
@@ -174,10 +174,65 @@ main img {
   font-size: 0.8em;
 }
 .board_post_wrapper .board_post_content {
-  padding: 10px;
+  margin-top: 30px;
 }
 .board_post_wrapper .board_post_content .tt_article_useless_p_margin {
   line-height: 1.7em;
+}
+
+/* Main - Main - Comment */
+.board_comment {
+}
+.board_comment .board_comment_write_form {
+}
+.board_comment .board_comment_write_form .write_info_form {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+.board_comment .board_comment_write_form .write_info_form input {
+  padding: 5px;
+  margin-right: 5px;
+  border-radius: 0;
+  width: 20%;
+  border: 1px solid #868e96;
+  transition: all 0.3s ease-in;
+}
+.board_comment .board_comment_write_form .write_info_form input:focus {
+  width: 100%;
+  outline: none;
+}
+.board_comment .board_comment_write_form .write_secret_form {
+  margin-top: 5px;
+}
+.board_comment .board_comment_write_form .write_comment_form {
+  margin-top: 5px;
+}
+.board_comment .board_comment_write_form .write_comment_form textarea {
+  display: block;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 50px;
+  border-radius: 0;
+  border: 1px solid #868e96;
+  transition: all 0.3s ease-in;
+}
+.board_comment .board_comment_write_form .write_comment_form textarea:focus {
+  min-height: 250px;
+  border: 1px solid #343a40;
+  outline: none;
+}
+.board_comment .board_comment_write_form .write_comment_form input {
+  margin-top: 10px;
+  border: 1px solid #343a40;
+  padding: 10px;
+  background-color: #343a40;
+  color: #ffffff;
+}
+.board_comment .board_comment_write_form .write_comment_form input:hover {
+  background-color: #fff;
+  color: #343a40;
+  cursor: pointer;
 }
 
 /* Footer */
