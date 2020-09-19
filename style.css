@@ -27,6 +27,8 @@ a:hover {
 .container {
   display: flex;
   flex-direction: column;
+  max-width: 1300px;
+  margin: 0 auto;
 }
 .contents_area {
   flex: 1;
@@ -37,6 +39,7 @@ a:hover {
 /* Sidemenu */
 .sidemenu {
   width: 300px;
+  height: 90vh;
   padding: 20px 30px;
   position: sticky;
   top: 0;
@@ -156,6 +159,25 @@ main img {
 }
 .home_post_desc .home_post_summary {
   font-size: 0.8em;
+}
+
+/* Main - Main - Board Post */
+.board_post_wrapper {
+}
+.board_post_wrapper .board_post_title {
+  padding: 10px;
+}
+.board_post_wrapper .board_post_title h2 {
+  font-weight: bold;
+}
+.board_post_wrapper .board_post_date {
+  font-size: 0.8em;
+}
+.board_post_wrapper .board_post_content {
+  padding: 10px;
+}
+.board_post_wrapper .board_post_content .tt_article_useless_p_margin {
+  line-height: 1.7em;
 }
 
 /* Footer */

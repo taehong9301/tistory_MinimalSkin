@@ -76,7 +76,7 @@
                         >
                           [##_article_rep_title_##]
                         </a>
-                        <p>
+                        <p class="home_post_date">
                           <a
                             href="[##_article_rep_category_link_##]"
                             class="home_post_category"
@@ -96,21 +96,25 @@
 
                 <!-- 본문 화면 -->
                 <s_permalink_article_rep>
-                  <div class="titleWrap">
-                    <h2>
-                      <a href="[##_article_rep_link_##]"
-                        >[##_article_rep_title_##]</a
-                      >
-                    </h2>
-                    <div class="category">
-                      <a href="[##_article_rep_category_link_##]"
-                        >[##_article_rep_category_##]</a
-                      >
+                  <div class="board_post_wrapper">
+                    <div class="board_post_title">
+                      <h2>
+                        <a href="[##_article_rep_link_##]"
+                          >[##_article_rep_title_##]</a
+                        >
+                      </h2>
+                      <div class="board_post_date">
+                        <a href="[##_article_rep_category_link_##]"
+                          >[##_article_rep_category_##]</a
+                        >
+                        <span>[##_article_rep_date_##]</span>
+                      </div>
                     </div>
-                    <div class="date">[##_article_rep_date_##]</div>
-                  </div>
 
-                  <div class="article">[##_article_rep_desc_##]</div>
+                    <div class="board_post_content">
+                      [##_article_rep_desc_##]
+                    </div>
+                  </div>
                 </s_permalink_article_rep>
               </s_article_rep>
             </main>
