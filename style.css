@@ -187,6 +187,8 @@ main img {
 /* Main - Main - Comment */
 .board_comment {
 }
+
+/* Main - Main - Comment Write */
 .board_comment .board_comment_write_form {
 }
 .board_comment .board_comment_write_form .write_info_form {
@@ -238,6 +240,35 @@ main img {
   background-color: #fff;
   color: #343a40;
   cursor: pointer;
+}
+
+/* Main - Main - Comment List */
+.board_comment .comment_list {
+}
+.board_comment .comment_list img {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+}
+.board_comment .comment_list ol,
+.board_comment .comment_list ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.board_comment .comment_list ul li {
+  margin-left: 3vw;
+}
+.board_comment .comment_list .replier_info {
+  display: flex;
+  align-items: center;
+}
+.board_comment .comment_list .replier_info .name,
+.board_comment .comment_list .replier_info .date {
+  margin-left: 5px;
+}
+.board_comment .comment_list .replier_info .date {
+  font-size: 0.7em;
 }
 
 /* Footer */
