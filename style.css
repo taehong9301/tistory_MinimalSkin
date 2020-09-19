@@ -114,6 +114,10 @@ header ul {
 header ul li {
   flex: 1;
 }
+header ul li a {
+  display: block;
+  width: 100%;
+}
 
 /* Main - Main */
 main {
@@ -214,6 +218,7 @@ main img {
   max-width: 100%;
   min-height: 50px;
   border-radius: 0;
+  padding: 10px;
   border: 1px solid #868e96;
   transition: all 0.3s ease-in;
 }
