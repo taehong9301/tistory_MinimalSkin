@@ -34,7 +34,9 @@
           <div class="sidemenu">
             <!-- profile -->
             <s_if_var_displayProfileImage>
-              <div class="profile">
+              <div
+                class="profile [##_var_profileBorderWeight_##]_profile_border [##_var_profileImageFeature_##]_profile_feature"
+              >
                 <img src="[##_image_##]" alt="profile image" />
               </div>
             </s_if_var_displayProfileImage>
@@ -42,7 +44,7 @@
             <!-- Description -->
             <div class="description">
               <s_if_var_displayBlogger>
-                <p class="blogger">[##_blogger_##]</p>
+                <p class="blogger">[##_title_##] - [##_blogger_##]</p>
               </s_if_var_displayBlogger>
               <s_if_var_displayBlogDesc>
                 <p class="desc">[##_desc_##]</p>
@@ -489,7 +491,7 @@
         </div>
 
         <footer>
-          Copyright&nbsp;<a href="[##_blog_link_##]">[##_blogger_##]</a
+          Copyright&nbsp;©&nbsp;<a href="[##_blog_link_##]">[##_blogger_##]</a
           >&nbsp;All&nbsp;rights&nbsp;reserved.&nbsp;/&nbsp;Designed&nbsp;by&nbsp;<a
             href="https://memostack.tistory.com/"
             target="_blank"
@@ -499,86 +501,102 @@
       </div>
 
       <!-- Hidden -->
-      <s_sidebar>
-        <s_sidebar_element>
-          <input type="hidden" name="count_total" value="[##_count_total_##]" />
-          <input type="hidden" name="count_today" value="[##_count_today_##]" />
-          <input
-            type="hidden"
-            name="count_yesterday"
-            value="[##_count_yesterday_##]"
-          />
-        </s_sidebar_element>
-      </s_sidebar>
+      <s_if_var_displayVisitChart>
+        <s_sidebar>
+          <s_sidebar_element>
+            <input
+              type="hidden"
+              name="count_total"
+              value="[##_count_total_##]"
+            />
+            <input
+              type="hidden"
+              name="count_today"
+              value="[##_count_today_##]"
+            />
+            <input
+              type="hidden"
+              name="count_yesterday"
+              value="[##_count_yesterday_##]"
+            />
+          </s_sidebar_element>
+        </s_sidebar>
+      </s_if_var_displayVisitChart>
     </s_t3>
 
-    <!-- Javascript -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-    <script>
-      function getNumLength(num) {
-        let result = 0;
-        while (num > 10) {
-          num /= 10;
-          result++;
+    <!-- Javascript - Chart -->
+    <s_if_var_displayVisitChart>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+      <script>
+        function getNumLength(num) {
+          let result = 0;
+          while (num > 10) {
+            num /= 10;
+            result++;
+          }
+          return result;
         }
-        return result;
-      }
-      function getMaxNum(num1, num2) {
-        return num1 > num2 ? num1 : num2;
-      }
+        function getMaxNum(num1, num2) {
+          return num1 > num2 ? num1 : num2;
+        }
 
-      function drawChart() {
-        const total = document.querySelector("input[name=count_total]").value;
-        const today = document.querySelector("input[name=count_today]").value;
-        const yesterday = document.querySelector("input[name=count_yesterday]")
-          .value;
+        function drawChart() {
+          const total = document.querySelector("input[name=count_total]").value;
+          const today = document.querySelector("input[name=count_today]").value;
+          const yesterday = document.querySelector(
+            "input[name=count_yesterday]"
+          ).value;
 
-        const length = getMaxNum(getNumLength(today), getNumLength(yesterday));
-        const carry = length > 1 ? Math.pow(10, length - 1) : 1;
+          const length = getMaxNum(
+            getNumLength(today),
+            getNumLength(yesterday)
+          );
+          const carry = length > 1 ? Math.pow(10, length - 1) : 1;
 
-        const ctx = document.querySelector("#visitChart");
-        const myBarChart = new Chart(ctx, {
-          type: "bar",
-          data: {
-            labels: ["Yesterday", "Today", "Total(x" + carry + ")"],
-            datasets: [
-              {
-                label: "Count",
-                data: [yesterday, today, total / carry],
-                backgroundColor: [
-                  "rgba(255, 99, 132, 0.2)",
-                  "rgba(54, 162, 235, 0.2)",
-                  "rgba(255, 206, 86, 0.2)",
-                ],
-                borderColor: [
-                  "rgba(255, 99, 132, 1)",
-                  "rgba(54, 162, 235, 1)",
-                  "rgba(255, 206, 86, 1)",
-                ],
-                borderWidth: 1,
-              },
-            ],
-          },
-          options: {
-            legend: {
-              display: false,
-            },
-            scales: {
-              yAxes: [
+          const ctx = document.querySelector("#visitChart");
+          const myBarChart = new Chart(ctx, {
+            type: "bar",
+            data: {
+              labels: ["Yesterday", "Today", "Total(x" + carry + ")"],
+              datasets: [
                 {
-                  ticks: {
-                    beginAtZero: true,
-                  },
+                  label: "Count",
+                  data: [yesterday, today, total / carry],
+                  backgroundColor: [
+                    "rgba(255, 99, 132, 0.2)",
+                    "rgba(54, 162, 235, 0.2)",
+                    "rgba(255, 206, 86, 0.2)",
+                  ],
+                  borderColor: [
+                    "rgba(255, 99, 132, 1)",
+                    "rgba(54, 162, 235, 1)",
+                    "rgba(255, 206, 86, 1)",
+                  ],
+                  borderWidth: 1,
                 },
               ],
             },
-          },
-        });
-      }
+            options: {
+              legend: {
+                display: false,
+              },
+              scales: {
+                yAxes: [
+                  {
+                    ticks: {
+                      beginAtZero: true,
+                    },
+                  },
+                ],
+              },
+            },
+          });
+        }
 
-      window.onload = function () {
-        drawChart();
-      };
-    </script>
+        window.onload = function () {
+          drawChart();
+        };
+      </script>
+    </s_if_var_displayVisitChart>
   </body>
 </html>
