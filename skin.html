@@ -64,7 +64,7 @@
             <main>
               <!-- Tag Cloud -->
               <s_tag>
-                <div class="taglog">
+                <div class="tag_wrapper">
                   <h6>Tags</h6>
                   <ul>
                     <s_tag_rep>
@@ -77,6 +77,133 @@
                   </ul>
                 </div>
               </s_tag>
+
+              <!-- GuestBook -->
+              <div class="board_comment">
+                <s_guest>
+                  <h6>COMMENT WRITE</h6>
+                  <div class="board_comment_write_form">
+                    <s_guest_input_form>
+                      <!-- 계정정보 입력 폼 -->
+                      <s_guest_member>
+                        <s_guest_guest>
+                          <div class="write_info_form">
+                            <input
+                              type="text"
+                              name="[##_guest_input_name_##]"
+                              placeholder="Username"
+                              value="[##_guest_name_##]"
+                            />
+                            <input
+                              type="password"
+                              placeholder="Password"
+                              maxlength="8"
+                              name="[##_guest_input_password_##]"
+                              value="[##_guest_admin_check_##]"
+                            />
+                            <input
+                              type="text"
+                              class="homepage"
+                              placeholder="Homepage"
+                              name="[##_guest_input_homepage_##]"
+                              value="[##_guest_homepage_##]"
+                            />
+                          </div>
+                        </s_guest_guest>
+
+                        <!-- 비밀글 여부 폼 -->
+                        <div class="write_secret_form">
+                          <label for="secret"> 비밀글 </label>
+                          <input
+                            type="checkbox"
+                            name="[##_guest_input_is_secret_##]"
+                            class="checkbox"
+                          />
+                        </div>
+                      </s_guest_member>
+
+                      <!-- 댓글 입력 폼 -->
+                      <div class="write_comment_form">
+                        <textarea name="[##_guest_input_comment_##]"></textarea>
+                        <input
+                          type="submit"
+                          value="방명록 쓰기"
+                          onclick="[##_guest_onclick_submit_##]"
+                        />
+                      </div>
+                    </s_guest_input_form>
+                  </div>
+
+                  <h6>COMMENT LIST</h6>
+                  <div class="comment_list">
+                    <s_guest_container>
+                      <ol>
+                        <s_guest_rep>
+                          <li id="[##_guest_rep_id_##]">
+                            <div class="[##_guest_rep_class_##]">
+                              <div class="replier_info">
+                                <img
+                                  src="[##_guest_rep_logo_##]"
+                                  alt="Replier profile image"
+                                />
+                                <span class="name">[##_guest_rep_name_##]</span>
+                                <span class="date">
+                                  [##_guest_rep_date_##]</span
+                                >
+                                <a
+                                  href="#"
+                                  onclick="[##_guest_rep_onclick_delete_##]"
+                                  class="modify"
+                                  >&nbsp;
+                                  <span>MODIFY/DELETE</span>
+                                </a>
+                                <a
+                                  href="#"
+                                  onclick="[##_guest_rep_onclick_reply_##]"
+                                  class="write"
+                                  >&nbsp;
+                                  <span>REPLY</span>
+                                </a>
+                              </div>
+                              <p>[##_guest_rep_desc_##]</p>
+                            </div>
+                            <s_guest_reply_container>
+                              <ul>
+                                <s_guest_reply_rep>
+                                  <li id="[##_guest_rep_id_##]">
+                                    <div class="[##_guest_rep_class_##]">
+                                      <div class="replier_info">
+                                        <img
+                                          src="[##_guest_rep_logo_##]"
+                                          alt="Replier profile image"
+                                        />
+                                        <span class="name"
+                                          >[##_guest_rep_name_##]</span
+                                        >
+                                        <span class="date">
+                                          [##_guest_rep_date_##]</span
+                                        >
+                                        <a
+                                          href="#"
+                                          onclick="[##_guest_rep_onclick_delete_##]"
+                                          class="modify"
+                                          >&nbsp;
+                                          <span>MODIFY/DELETE</span>
+                                        </a>
+                                      </div>
+                                      <p>[##_guest_rep_desc_##]</p>
+                                    </div>
+                                  </li>
+                                </s_guest_reply_rep>
+                              </ul>
+                            </s_guest_reply_container>
+                          </li>
+                        </s_guest_rep>
+                      </ol>
+                    </s_guest_container>
+                  </div>
+                </s_guest>
+              </div>
 
               <s_article_rep>
                 <!-- 홈 화면 -->
@@ -227,14 +354,14 @@
                                         onclick="[##_rp_rep_onclick_delete_##]"
                                         class="modify"
                                         >&nbsp;
-                                        <span>수정/삭제</span>
+                                        <span>MODIFY/DELETE</span>
                                       </a>
                                       <a
                                         href="#"
                                         onclick="[##_rp_rep_onclick_reply_##]"
                                         class="write"
                                         >&nbsp;
-                                        <span>댓글쓰기</span>
+                                        <span>REPLY</span>
                                       </a>
                                     </div>
                                     <p>[##_rp_rep_desc_##]</p>
@@ -266,7 +393,7 @@
                                                 onclick="[##_rp_rep_onclick_delete_##]"
                                                 class="modify"
                                                 >&nbsp;
-                                                <span>수정/삭제</span>
+                                                <span>MODIFY/DELETE</span>
                                               </a>
                                             </div>
                                             <p>[##_rp_rep_desc_##]</p>
