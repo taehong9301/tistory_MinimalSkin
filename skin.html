@@ -33,14 +33,20 @@
         <div class="contents_area">
           <div class="sidemenu">
             <!-- profile -->
-            <div class="profile">
-              <img src="[##_image_##]" alt="profile image" />
-            </div>
+            <s_if_var_displayProfileImage>
+              <div class="profile">
+                <img src="[##_image_##]" alt="profile image" />
+              </div>
+            </s_if_var_displayProfileImage>
 
             <!-- Description -->
             <div class="description">
-              <p class="blogger">[##_blogger_##]</p>
-              <p class="desc">[##_desc_##]</p>
+              <s_if_var_displayBlogger>
+                <p class="blogger">[##_blogger_##]</p>
+              </s_if_var_displayBlogger>
+              <s_if_var_displayBlogDesc>
+                <p class="desc">[##_desc_##]</p>
+              </s_if_var_displayBlogDesc>
             </div>
 
             <!-- Category -->
@@ -52,10 +58,12 @@
             </div>
 
             <!-- Counter -->
-            <div>
-              <h6>COUNTER</h6>
-              <canvas id="visitChart" width="100%"></canvas>
-            </div>
+            <s_if_var_displayVisitChart>
+              <div>
+                <h6>COUNTER</h6>
+                <canvas id="visitChart" width="100%"></canvas>
+              </div>
+            </s_if_var_displayVisitChart>
           </div>
 
           <!-- main content -->
@@ -205,6 +213,47 @@
                 </s_guest>
               </div>
 
+              <!-- 커버 화면 -->
+              <s_cover_group>
+                <s_cover_rep>
+                  <s_cover name="thumbnail">
+                    <div class="home_post_wrapper">
+                      <s_cover_item>
+                        <div class="home_post">
+                          <div class="home_post_img">
+                            <s_cover_item_thumbnail>
+                              <a href="[##_cover_item_url_##]">
+                                <img src="[##_cover_item_thumbnail_##]" />
+                              </a>
+                            </s_cover_item_thumbnail>
+                          </div>
+                          <div class="home_post_desc">
+                            <a
+                              href="[##_cover_item_url_##]"
+                              class="home_post_title"
+                              >[##_cover_item_title_##]</a
+                            >
+                            <p class="home_post_date">
+                              <a
+                                href="[##_cover_item_url_##]"
+                                class="home_post_category"
+                              >
+                                [##_cover_item_category_##]
+                              </a>
+                              [##_cover_item_simple_date_##]
+                            </p>
+
+                            <p class="home_post_summary">
+                              [##_cover_item_summary_##]
+                            </p>
+                          </div>
+                        </div>
+                      </s_cover_item>
+                    </div>
+                  </s_cover>
+                </s_cover_rep>
+              </s_cover_group>
+
               <s_article_rep>
                 <!-- 홈 화면 -->
                 <div class="home_post_wrapper">
@@ -259,6 +308,29 @@
                           >[##_article_rep_category_##]</a
                         >
                         <span>[##_article_rep_date_##]</span>
+                      </div>
+                      <div class="board_post_date">
+                        <s_ad_div>
+                          <div class="admin">
+                            <a href="[##_s_ad_m_link_##]">수정</a> :
+                            <a href="#" onclick="[##_s_ad_m_onclick_##]"
+                              >수정(창으로)</a
+                            >
+                            | ([##_s_ad_s1_label_##])→<a
+                              href="#"
+                              onclick="[##_s_ad_s2_onclick_##]"
+                              >[##_s_ad_s2_label_##]</a
+                            >
+                            |
+                            <a href="#" onclick="[##_s_ad_t_onclick_##]"
+                              >관련글(트랙백)</a
+                            >
+                            |
+                            <a href="#" onclick="[##_s_ad_d_onclick_##]"
+                              >삭제</a
+                            >
+                          </div>
+                        </s_ad_div>
                       </div>
                     </div>
 

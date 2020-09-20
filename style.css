@@ -160,6 +160,7 @@ main img {
 .home_post_wrapper {
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 .home_post {
   flex: 1;

@@ -49,4 +49,66 @@
     </tree>
     <contentWidth>500</contentWidth>
   </default>
+
+  <!-- Legacy -->
+	<liststyle>
+		<item>
+			<label>기본 타입</label>
+			<value>thumbnail</value>
+		</item>
+	</liststyle>
+
+  <!-- Cover -->
+	<cover>
+		<item>
+			<name>thumbnail</name>
+			<label>
+				<![CDATA[ 기본 타입 ]]>
+			</label>
+			<description>
+				<![CDATA[ 좌측에 대표 이미지를 구성하고, 우측에 제목과 본문을 구성합니다.]]>
+			</description>
+		</item>
+  </cover>
+
+  <!-- Variable -->
+  <variables>
+    <variablegroup name="구성 요소 보이기/숨기기">
+      <variable>
+        <name>displayProfileImage</name>
+        <label>프로필 사진 보이기</label>
+        <description></description>
+        <type>BOOL</type>
+        <option></option>
+        <default>true</default>
+      </variable>
+
+      <variable>
+        <name>displayBlogger</name>
+        <label>블로거 이름 보이기</label>
+        <description></description>
+        <type>BOOL</type>
+        <option></option>
+        <default>true</default>
+      </variable>
+
+      <variable>
+        <name>displayBlogDesc</name>
+        <label>블로그 소개글 보이기</label>
+        <description></description>
+        <type>BOOL</type>
+        <option></option>
+        <default>true</default>
+      </variable>
+      
+      <variable>
+        <name>displayVisitChart</name>
+        <label>방문자 차트 보이기</label>
+        <description></description>
+        <type>BOOL</type>
+        <option></option>
+        <default>true</default>
+      </variable>
+    </variablegroup>
+  </variables>
 </skin>
