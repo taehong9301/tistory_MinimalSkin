@@ -189,11 +189,19 @@ main img {
   width: 130px;
   height: 130px;
   overflow: hidden;
-  text-align: center;
+  position: relative;
 }
 .home_post_img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: auto;
   height: 100%;
-  width: auto;
+  width: 100%;
+  object-fit: cover;
+}
+.home_post_img img:hover {
+  cursor: pointer;
 }
 .home_post_desc {
   flex: 1;
