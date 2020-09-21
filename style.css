@@ -17,11 +17,11 @@ h6 {
 }
 a {
   text-decoration: none;
-  color: #868e96;
+  color: #343a40;
 }
 a:hover {
   text-decoration: none;
-  color: #343a40;
+  color: #868e96;
 }
 ::selection {
   color: #ffffff;
@@ -122,6 +122,8 @@ header {
   height: 50px;
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 header ul {
   flex: 1;
@@ -189,11 +191,19 @@ main img {
   width: 130px;
   height: 130px;
   overflow: hidden;
-  text-align: center;
+  position: relative;
 }
 .home_post_img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: auto;
   height: 100%;
-  width: auto;
+  width: 100%;
+  object-fit: cover;
+}
+.home_post_img img:hover {
+  cursor: pointer;
 }
 .home_post_desc {
   flex: 1;
@@ -230,6 +240,7 @@ main img {
 }
 .board_post_wrapper pre {
   white-space: pre-wrap;
+  word-break: break-all;
 }
 
 /* Main - Main - Comment */
@@ -401,8 +412,9 @@ footer {
 
   /* Main - Header */
   header {
-    height: 20px;
+    height: 50px;
     font-size: 0.8em;
+    border-bottom: 1px solid #e9ecef;
   }
 
   /* Main - Main */
