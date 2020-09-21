@@ -240,6 +240,7 @@ main img {
 }
 .board_post_wrapper pre {
   white-space: pre-wrap;
+  word-break: break-all;
 }
 
 /* Main - Main - Comment */
