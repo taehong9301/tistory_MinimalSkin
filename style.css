@@ -17,11 +17,11 @@ h6 {
 }
 a {
   text-decoration: none;
-  color: #868e96;
+  color: #343a40;
 }
 a:hover {
   text-decoration: none;
-  color: #343a40;
+  color: #868e96;
 }
 ::selection {
   color: #ffffff;
