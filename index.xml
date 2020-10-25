@@ -147,5 +147,24 @@
         <default>none</default>
       </variable>
     </variablegroup>
+
+    <variablegroup name="테마 설정">
+      <variable>
+        <name>theme</name>
+        <label>테마 선택</label>
+        <description></description>
+        <type>SELECT</type>
+        <option>
+					<![CDATA[
+            [
+              {"name":"light", "label":"밝은 테마 (기본)", "value":"lightTheme"},
+              {"name":"dark", "label":"어두운 테마", "value":"darkTheme"}
+            ]
+          ]]>
+        </option>
+        <default>lightTheme</default>
+      </variable>
+    </variablegroup>
+
   </variables>
 </skin>
