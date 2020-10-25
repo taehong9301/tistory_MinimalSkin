@@ -204,6 +204,7 @@ main img {
 }
 .home_post_img img:hover {
   cursor: pointer;
+  opacity: 0.8;
 }
 .home_post_desc {
   flex: 1;
