@@ -4,6 +4,7 @@
     <title>[##_page_title_##]</title>
 
     <!-- meta tags -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="title" content="[##_page_title_##] :: [##_title_##]" />
     <meta name="description" content="[##_desc_##]" />
     <meta charset="utf-8" />
@@ -19,6 +20,8 @@
       title="[##_title_##]"
       href="[##_rss_url_##]"
     />
+
+    <!-- Font -->
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap"
       rel="stylesheet"
@@ -26,11 +29,24 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="./style.css" />
+
+    <!-- WEB Master -->
+    <!-- WEB Master - Google -->
+    <meta
+      name="google-site-verification"
+      content="[##_var_googleWebMaster_##]"
+    />
+    <!-- WEB Master - NAVER -->
+    <meta name="naver-site-verification" content="[##_var_naverWebMaster_##]" />
+    <!-- WEB Master - BING -->
+    <meta name="msvalidate.01" content="[##_var_bingWebMaster_##]" />
   </head>
   <body id="[##_body_id_##]" class="[##_var_theme_##]">
     <s_t3>
       <div class="container">
-        <div class="contents_area">
+        <div
+          class="contents_area contents_area_[##_var_orderChangeSidemenu_##]"
+        >
           <div class="sidemenu">
             <!-- profile -->
             <s_if_var_displayProfileImage>
@@ -51,16 +67,6 @@
               </s_if_var_displayBlogDesc>
             </div>
 
-            <div class="category">
-              <h6>CATEGORY</h6>
-              <s_sidebar>
-                <s_sidebar_element>
-                  <!-- Category -->
-                  [##_category_list_##]
-                </s_sidebar_element>
-              </s_sidebar>
-            </div>
-
             <!-- Counter -->
             <s_if_var_displayVisitChart>
               <div>
@@ -68,6 +74,30 @@
                 <canvas id="visitChart" width="100%"></canvas>
               </div>
             </s_if_var_displayVisitChart>
+
+            <!-- Category -->
+            <s_if_var_displayCategory>
+              <div class="category">
+                <h6>CATEGORY</h6>
+                <s_sidebar>
+                  <s_sidebar_element>
+                    <!-- Category -->
+                    [##_category_list_##]
+                  </s_sidebar_element>
+                </s_sidebar>
+              </div>
+            </s_if_var_displayCategory>
+
+            <!-- Google Adsense -->
+            <div class="advertisement">
+              <h6>GOOGLE AD</h6>
+              <s_sidebar>
+                <s_sidebar_element>
+                  <!-- Google Adsense -->
+                  <!-- 여기에 광고 스크립트를 넣어주세요 -->
+                </s_sidebar_element>
+              </s_sidebar>
+            </div>
           </div>
 
           <!-- main content -->
@@ -551,8 +581,7 @@
                   getNumLength(today),
                   getNumLength(yesterday)
                 );
-                const carry = length > 1 ? Math.pow(10, length - 1) : 1;
-
+                const carry = length > 1 ? Math.pow(10, length) : 1;
                 const ctx = document.querySelector("#visitChart");
                 const myBarChart = new Chart(ctx, {
                   type: "bar",
@@ -561,7 +590,11 @@
                     datasets: [
                       {
                         label: "Count",
-                        data: [yesterday, today, total / carry],
+                        data: [
+                          yesterday,
+                          today,
+                          parseInt(total.replace(",", "")) / parseInt(carry),
+                        ],
                         backgroundColor: [
                           "rgba(255, 99, 132, 0.2)",
                           "rgba(54, 162, 235, 0.2)",

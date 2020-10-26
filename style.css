@@ -180,16 +180,18 @@ a:hover {
   display: flex;
   min-height: 90vh;
 }
+.contents_area_leftOrder {
+  flex-direction: row;
+}
+.contents_area_rightOrder {
+  flex-direction: row-reverse;
+}
 
 /* Sidemenu */
 .sidemenu {
   width: 300px;
   height: 90vh;
   padding: 20px 30px;
-  position: sticky;
-  top: 0;
-  left: 0;
-  overflow-y: scroll;
 }
 
 /* Sidemenu - Profile */
