@@ -259,14 +259,17 @@
               </s_guest>
             </div>
 
-            <!-- 커버 화면 -->
+            <!-- 상단 광고 -->
             <div>
               [##_revenue_list_upper_##]
             </div>
+
+            <!-- 커버 화면 -->
             <s_cover_group>
               <s_cover_rep>
                 <s_cover name="thumbnail">
                   <div class="home_post_wrapper">
+                    <h6>ARTICLE</h6>
                     <s_cover_item>
                       <div class="home_post">
                         <div class="home_post_img">
@@ -277,15 +280,16 @@
                         </div>
                         <div class="home_post_desc">
                           <a href="[##_cover_item_url_##]" class="home_post_title">[##_cover_item_title_##]</a>
+
+                          <p class="home_post_summary">
+                            [##_cover_item_summary_##]
+                          </p>
+
                           <p class="home_post_date">
                             <a href="[##_cover_item_url_##]" class="home_post_category">
                               [##_cover_item_category_##]
                             </a>
                             [##_cover_item_simple_date_##]
-                          </p>
-
-                          <p class="home_post_summary">
-                            [##_cover_item_summary_##]
                           </p>
                         </div>
                       </div>
@@ -468,6 +472,40 @@
       </footer>
     </div>
   </s_t3>
+  <div id="noti" class="alert alert_hide">
+  </div>
+  <script type="text/javascript">
+    function noti(level, msg) {
+      var noti_tag = document.querySelector("#noti");
+      noti_tag.innerHTML = "<p>" + msg + "</p>";
+      if (level == "danger") {
+        noti_tag.classList.add("alert_danger");
+        noti_tag.classList.add("alert_show");
+        noti_tag.classList.remove("alert_hide");
+        setTimeout(function () {
+          noti_tag.classList.remove("alert_danger");
+          noti_tag.classList.remove("alert_show");
+          noti_tag.classList.add("alert_hide");
+        }, 3000);
+      }
+    }
+    var map = {
+      18: false,
+      73: false,
+      91: false,
+      123: false
+    }
+    document.onkeydown = function () {
+      map[event.keyCode] = true;
+      if ((map[18] && map[73] && map[91]) || map[123]) {
+        event.preventDefault();
+        noti("danger", "개발자 도구는 사용할 수 없습니다.");
+      }
+    }
+    document.onkeyup = function () {
+      map[event.keyCode] = false;
+    }
+  </script>
 </body>
 
 </html>
