@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko-KR">
 
 <head>
   <title>[##_page_title_##]</title>
@@ -8,7 +8,6 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="title" content="[##_page_title_##] :: [##_title_##]" />
   <meta name="description" content="[##_desc_##]" />
-  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 
@@ -33,7 +32,7 @@
   <s_t3>
     <div class="container">
       <div class="contents_area contents_area_[##_var_orderChangeSidemenu_##]">
-        <div class="sidemenu">
+        <aside class="sidemenu">
           <!-- profile -->
           <s_if_var_displayProfileImage>
             <div
@@ -157,7 +156,8 @@
               </s_sidebar_element>
             </s_if_var_displayCategory>
           </s_sidebar>
-        </div>
+        </aside>
+
         <!-- main content -->
         <div class="main">
           <header>[##_blog_menu_##]</header>
@@ -271,7 +271,7 @@
                   <div class="home_post_wrapper">
                     <h6>ARTICLE</h6>
                     <s_cover_item>
-                      <div class="home_post">
+                      <article class="home_post">
                         <div class="home_post_img">
                           <s_cover_item_thumbnail>
                             <img src="[##_cover_item_thumbnail_##]"
@@ -292,7 +292,7 @@
                             [##_cover_item_simple_date_##]
                           </p>
                         </div>
-                      </div>
+                      </article>
                     </s_cover_item>
                   </div>
                 </s_cover>
