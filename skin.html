@@ -1,638 +1,473 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <title>[##_page_title_##]</title>
 
-    <!-- meta tags -->
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="title" content="[##_page_title_##] :: [##_title_##]" />
-    <meta name="description" content="[##_desc_##]" />
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<head>
+  <title>[##_page_title_##]</title>
 
-    <link
-      rel="alternate"
-      type="application/rss+xml"
-      title="[##_title_##]"
-      href="[##_rss_url_##]"
-    />
+  <!-- meta tags -->
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="title" content="[##_page_title_##] :: [##_title_##]" />
+  <meta name="description" content="[##_desc_##]" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 
-    <!-- Font -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap"
-      rel="stylesheet"
-    />
+  <link rel="alternate" type="application/rss+xml" title="[##_title_##]" href="[##_rss_url_##]" />
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="./style.css" />
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet" />
 
-    <!-- WEB Master -->
-    <!-- WEB Master - Google -->
-    <meta
-      name="google-site-verification"
-      content="[##_var_googleWebMaster_##]"
-    />
-    <!-- WEB Master - NAVER -->
-    <meta name="naver-site-verification" content="[##_var_naverWebMaster_##]" />
-    <!-- WEB Master - BING -->
-    <meta name="msvalidate.01" content="[##_var_bingWebMaster_##]" />
-  </head>
-  <body id="[##_body_id_##]" class="[##_var_theme_##]">
-    <s_t3>
-      <div class="container">
-        <div
-          class="contents_area contents_area_[##_var_orderChangeSidemenu_##]"
-        >
-          <div class="sidemenu">
-            <!-- profile -->
-            <s_if_var_displayProfileImage>
-              <div
-                class="profile [##_var_profileBorderWeight_##]_profile_border [##_var_profileImageFeature_##]_profile_feature"
-              >
-                <img src="[##_image_##]" alt="profile image" />
-              </div>
-            </s_if_var_displayProfileImage>
+  <!-- CSS -->
+  <link rel="stylesheet" href="./style.css" />
 
-            <!-- Description -->
-            <div class="description">
-              <s_if_var_displayBlogger>
-                <p class="blogger">[##_title_##] - [##_blogger_##]</p>
-              </s_if_var_displayBlogger>
-              <s_if_var_displayBlogDesc>
-                <p class="desc">[##_desc_##]</p>
-              </s_if_var_displayBlogDesc>
+  <!-- WEB Master -->
+  <!-- WEB Master - Google -->
+  <meta name="google-site-verification" content="[##_var_googleWebMaster_##]" />
+  <!-- WEB Master - NAVER -->
+  <meta name="naver-site-verification" content="[##_var_naverWebMaster_##]" />
+  <!-- WEB Master - BING -->
+  <meta name="msvalidate.01" content="[##_var_bingWebMaster_##]" />
+</head>
+
+<body id="[##_body_id_##]" class="[##_var_theme_##]">
+  <s_t3>
+    <div class="container">
+      <div class="contents_area contents_area_[##_var_orderChangeSidemenu_##]">
+        <div class="sidemenu">
+          <!-- profile -->
+          <s_if_var_displayProfileImage>
+            <div
+              class="profile [##_var_profileBorderWeight_##]_profile_border [##_var_profileImageFeature_##]_profile_feature">
+              <img src="[##_image_##]" alt="profile image" />
             </div>
+          </s_if_var_displayProfileImage>
 
-            <!-- Counter -->
+          <!-- Description -->
+          <div class="description">
+            <s_if_var_displayBlogger>
+              <p class="blogger">[##_title_##] :: [##_blogger_##]</p>
+            </s_if_var_displayBlogger>
+            <s_if_var_displayBlogDesc>
+              <p class="desc">[##_desc_##]</p>
+            </s_if_var_displayBlogDesc>
+          </div>
+
+          <!-- Counter -->
+          <s_sidebar>
             <s_if_var_displayVisitChart>
               <div>
-                <h6>COUNTER</h6>
-                <canvas id="visitChart" width="100%"></canvas>
+                <s_sidebar_element>
+                  <!-- 통계 그래프 -->
+                  <h6>COUNTER</h6>
+                  <canvas id="visitChart" width="100%"></canvas>
+
+                  <input type="hidden" name="count_total" value="[##_count_total_##]" />
+                  <input type="hidden" name="count_today" value="[##_count_today_##]" />
+                  <input type="hidden" name="count_yesterday" value="[##_count_yesterday_##]" />
+
+                  <!-- Javascript - Chart -->
+                  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+                  <script>
+                    function getNumLength(num) {
+                      let result = 0;
+                      while (num > 10) {
+                        num /= 10;
+                        result++;
+                      }
+                      return result;
+                    }
+                    function getMaxNum(num1, num2) {
+                      return num1 > num2 ? num1 : num2;
+                    }
+
+                    function drawChart() {
+                      const total = document.querySelector("input[name=count_total]")
+                        .value;
+                      const today = document.querySelector("input[name=count_today]")
+                        .value;
+                      const yesterday = document.querySelector(
+                        "input[name=count_yesterday]"
+                      ).value;
+
+                      const length = getMaxNum(
+                        getNumLength(today),
+                        getNumLength(yesterday)
+                      );
+                      const carry = length > 1 ? Math.pow(10, length) : 1;
+                      const ctx = document.querySelector("#visitChart");
+                      const myBarChart = new Chart(ctx, {
+                        type: "bar",
+                        data: {
+                          labels: ["Yesterday", "Today", "Total(x" + carry + ")"],
+                          datasets: [
+                            {
+                              label: "Count",
+                              data: [
+                                yesterday,
+                                today,
+                                parseInt(total.replace(",", "")) / parseInt(carry),
+                              ],
+                              backgroundColor: [
+                                "rgba(255, 99, 132, 0.2)",
+                                "rgba(54, 162, 235, 0.2)",
+                                "rgba(255, 206, 86, 0.2)",
+                              ],
+                              borderColor: [
+                                "rgba(255, 99, 132, 1)",
+                                "rgba(54, 162, 235, 1)",
+                                "rgba(255, 206, 86, 1)",
+                              ],
+                              borderWidth: 1,
+                            },
+                          ],
+                        },
+                        options: {
+                          legend: {
+                            display: false,
+                          },
+                          scales: {
+                            yAxes: [
+                              {
+                                ticks: {
+                                  beginAtZero: true,
+                                },
+                              },
+                            ],
+                          },
+                        },
+                      });
+                    }
+
+                    window.onload = function () {
+                      drawChart();
+                    };
+                  </script>
+                </s_sidebar_element>
               </div>
             </s_if_var_displayVisitChart>
 
             <!-- Category -->
             <s_if_var_displayCategory>
-              <div class="category">
-                <h6>CATEGORY</h6>
-                <s_sidebar>
-                  <s_sidebar_element>
-                    <!-- Category -->
-                    [##_category_list_##]
-                  </s_sidebar_element>
-                </s_sidebar>
-              </div>
+              <s_sidebar_element>
+                <div class="category">
+                  <!-- Category -->
+                  <h6>CATEGORY</h6>
+                  [##_category_list_##]
+                </div>
+              </s_sidebar_element>
             </s_if_var_displayCategory>
-
-            <!-- Google Adsense -->
-            <div class="advertisement">
-              <h6>GOOGLE AD</h6>
-              <s_sidebar>
-                <s_sidebar_element>
-                  <!-- Google Adsense -->
-                  <!-- 여기에 광고 스크립트를 넣어주세요 -->
-                </s_sidebar_element>
-              </s_sidebar>
-            </div>
-          </div>
-
-          <!-- main content -->
-          <div class="main">
-            <header>[##_blog_menu_##]</header>
-            <main>
-              <!-- Tag Cloud -->
-              <s_tag>
-                <div class="tag_wrapper">
-                  <h6>Tags</h6>
-                  <ul>
-                    <s_tag_rep>
-                      <li>
-                        <a href="[##_tag_link_##]" class="[##_tag_class_##]"
-                          >[##_tag_name_##]</a
-                        >
-                      </li>
-                    </s_tag_rep>
-                  </ul>
-                </div>
-              </s_tag>
-
-              <!-- GuestBook -->
-              <div class="board_comment">
-                <s_guest>
-                  <h6>COMMENT WRITE</h6>
-                  <div class="board_comment_write_form">
-                    <s_guest_input_form>
-                      <!-- 계정정보 입력 폼 -->
-                      <s_guest_member>
-                        <s_guest_form>
-                          <div class="write_info_form">
-                            <input
-                              type="text"
-                              name="[##_guest_input_name_##]"
-                              placeholder="Username"
-                              value="[##_guest_name_##]"
-                            />
-                            <input
-                              type="password"
-                              placeholder="Password"
-                              maxlength="8"
-                              name="[##_guest_input_password_##]"
-                              value="[##_guest_password_##]"
-                            />
-                            <input
-                              type="text"
-                              class="homepage"
-                              placeholder="Homepage"
-                              name="[##_guest_input_homepage_##]"
-                              value="[##_guest_homepage_##]"
-                            />
-                          </div>
-                        </s_guest_form>
-
-                        <!-- 비밀글 여부 폼 -->
-                        <div class="write_secret_form">
-                          <label for="secret"> 비밀글 </label>
-                          <input
-                            type="checkbox"
-                            name="[##_guest_input_is_secret_##]"
-                            class="checkbox"
-                          />
-                        </div>
-                      </s_guest_member>
-
-                      <!-- 댓글 입력 폼 -->
-                      <div class="write_comment_form">
-                        <textarea name="[##_guest_input_comment_##]"></textarea>
-                        <input
-                          type="submit"
-                          value="방명록 쓰기"
-                          onclick="[##_guest_onclick_submit_##]"
-                        />
-                      </div>
-                    </s_guest_input_form>
-                  </div>
-
-                  <h6>COMMENT LIST</h6>
-                  <div class="comment_list">
-                    <s_guest_container>
-                      <ol>
-                        <s_guest_rep>
-                          <li id="[##_guest_rep_id_##]">
-                            <div class="[##_guest_rep_class_##]">
-                              <div class="replier_info">
-                                <img
-                                  src="[##_guest_rep_logo_##]"
-                                  alt="Replier profile image"
-                                />
-                                <span class="name">[##_guest_rep_name_##]</span>
-                                <span class="date">
-                                  [##_guest_rep_date_##]</span
-                                >
-                                <a
-                                  href="#"
-                                  onclick="[##_guest_rep_onclick_delete_##]"
-                                  class="modify"
-                                  >&nbsp;
-                                  <span>MODIFY/DELETE</span>
-                                </a>
-                                <a
-                                  href="#"
-                                  onclick="[##_guest_rep_onclick_reply_##]"
-                                  class="write"
-                                  >&nbsp;
-                                  <span>REPLY</span>
-                                </a>
-                              </div>
-                              <p>[##_guest_rep_desc_##]</p>
-                            </div>
-                            <s_guest_reply_container>
-                              <ul>
-                                <s_guest_reply_rep>
-                                  <li id="[##_guest_rep_id_##]">
-                                    <div class="[##_guest_rep_class_##]">
-                                      <div class="replier_info">
-                                        <img
-                                          src="[##_guest_rep_logo_##]"
-                                          alt="Replier profile image"
-                                        />
-                                        <span class="name"
-                                          >[##_guest_rep_name_##]</span
-                                        >
-                                        <span class="date">
-                                          [##_guest_rep_date_##]</span
-                                        >
-                                        <a
-                                          href="#"
-                                          onclick="[##_guest_rep_onclick_delete_##]"
-                                          class="modify"
-                                          >&nbsp;
-                                          <span>MODIFY/DELETE</span>
-                                        </a>
-                                      </div>
-                                      <p>[##_guest_rep_desc_##]</p>
-                                    </div>
-                                  </li>
-                                </s_guest_reply_rep>
-                              </ul>
-                            </s_guest_reply_container>
-                          </li>
-                        </s_guest_rep>
-                      </ol>
-                    </s_guest_container>
-                  </div>
-                </s_guest>
+          </s_sidebar>
+        </div>
+        <!-- main content -->
+        <div class="main">
+          <header>[##_blog_menu_##]</header>
+          <main>
+            <!-- Tag Cloud -->
+            <s_tag>
+              <div class="tag_wrapper">
+                <h6>Tags</h6>
+                <ul>
+                  <s_tag_rep>
+                    <li>
+                      <a href="[##_tag_link_##]" class="[##_tag_class_##]">[##_tag_name_##]</a>
+                    </li>
+                  </s_tag_rep>
+                </ul>
               </div>
+            </s_tag>
 
-              <!-- 커버 화면 -->
-              <s_cover_group>
-                <s_cover_rep>
-                  <s_cover name="thumbnail">
-                    <div class="home_post_wrapper">
-                      <s_cover_item>
-                        <div class="home_post">
-                          <div class="home_post_img">
-                            <s_cover_item_thumbnail>
-                              <img
-                                src="[##_cover_item_thumbnail_##]"
-                                onclick="window.location='[##_cover_item_url_##]'"
-                              />
-                            </s_cover_item_thumbnail>
-                          </div>
-                          <div class="home_post_desc">
-                            <a
-                              href="[##_cover_item_url_##]"
-                              class="home_post_title"
-                              >[##_cover_item_title_##]</a
-                            >
-                            <p class="home_post_date">
-                              <a
-                                href="[##_cover_item_url_##]"
-                                class="home_post_category"
-                              >
-                                [##_cover_item_category_##]
-                              </a>
-                              [##_cover_item_simple_date_##]
-                            </p>
-
-                            <p class="home_post_summary">
-                              [##_cover_item_summary_##]
-                            </p>
-                          </div>
+            <!-- GuestBook -->
+            <div class="board_comment">
+              <s_guest>
+                <h6>COMMENT WRITE</h6>
+                <div class="board_comment_write_form">
+                  <s_guest_input_form>
+                    <!-- 계정정보 입력 폼 -->
+                    <s_guest_member>
+                      <s_guest_form>
+                        <div class="write_info_form">
+                          <input type="text" name="[##_guest_input_name_##]" placeholder="Username"
+                            value="[##_guest_name_##]" />
+                          <input type="password" placeholder="Password" maxlength="8"
+                            name="[##_guest_input_password_##]" value="[##_guest_password_##]" />
+                          <input type="text" class="homepage" placeholder="Homepage" name="[##_guest_input_homepage_##]"
+                            value="[##_guest_homepage_##]" />
                         </div>
-                      </s_cover_item>
-                    </div>
-                  </s_cover>
-                </s_cover_rep>
-              </s_cover_group>
+                      </s_guest_form>
 
-              <s_article_rep>
-                <!-- 홈 화면 -->
-                <div class="home_post_wrapper">
-                  <s_index_article_rep>
-                    <div class="home_post">
-                      <div class="home_post_img">
-                        <s_article_rep_thumbnail>
-                          <a href="[##_article_rep_link_##]">
-                            <img src="[##_article_rep_thumbnail_url_##]" />
-                          </a>
-                        </s_article_rep_thumbnail>
+                      <!-- 비밀글 여부 폼 -->
+                      <div class="write_secret_form">
+                        <label for="secret"> 비밀글 </label>
+                        <input type="checkbox" name="[##_guest_input_is_secret_##]" class="checkbox" />
                       </div>
+                    </s_guest_member>
 
-                      <div class="home_post_desc">
-                        <a
-                          href="[##_article_rep_link_##]"
-                          class="home_post_title"
-                        >
-                          [##_article_rep_title_##]
-                        </a>
-                        <p class="home_post_date">
-                          <a
-                            href="[##_article_rep_category_link_##]"
-                            class="home_post_category"
-                          >
-                            [##_article_rep_category_##]
-                          </a>
-                          [##_article_rep_date_##]
-                        </p>
-
-                        <p class="home_post_summary">
-                          [##_article_rep_summary_##]
-                        </p>
-                      </div>
+                    <!-- 댓글 입력 폼 -->
+                    <div class="write_comment_form">
+                      <textarea name="[##_guest_input_comment_##]"></textarea>
+                      <input type="submit" value="방명록 쓰기" onclick="[##_guest_onclick_submit_##]" />
                     </div>
-                  </s_index_article_rep>
+                  </s_guest_input_form>
                 </div>
 
-                <!-- 본문 화면 -->
-                <s_permalink_article_rep>
-                  <div class="board_post_wrapper">
-                    <h6>POST</h6>
-
-                    <div class="board_post_title">
-                      <h2>
-                        <a href="[##_article_rep_link_##]"
-                          >[##_article_rep_title_##]</a
-                        >
-                      </h2>
-                      <div class="board_post_date">
-                        <a href="[##_article_rep_category_link_##]"
-                          >[##_article_rep_category_##]</a
-                        >
-                        <span>[##_article_rep_date_##]</span>
-                      </div>
-                      <div class="board_post_date">
-                        <s_ad_div>
-                          <div class="admin">
-                            <a href="[##_s_ad_m_link_##]">수정</a> :
-                            <a href="#" onclick="[##_s_ad_m_onclick_##]"
-                              >수정(창으로)</a
-                            >
-                            | ([##_s_ad_s1_label_##])→<a
-                              href="#"
-                              onclick="[##_s_ad_s2_onclick_##]"
-                              >[##_s_ad_s2_label_##]</a
-                            >
-                            |
-                            <a href="#" onclick="[##_s_ad_t_onclick_##]"
-                              >관련글(트랙백)</a
-                            >
-                            |
-                            <a href="#" onclick="[##_s_ad_d_onclick_##]"
-                              >삭제</a
-                            >
-                          </div>
-                        </s_ad_div>
-                      </div>
-                    </div>
-
-                    <!-- Board Post -->
-                    <div class="board_post_content">
-                      [##_article_rep_desc_##]
-                    </div>
-
-                    <!-- Comment -->
-                    <div class="board_comment">
-                      <s_rp>
-                        <h6>COMMENT WRITE</h6>
-                        <div class="board_comment_write_form">
-                          <s_rp_input_form>
-                            <!-- 계정정보 입력 폼 -->
-                            <s_rp_member>
-                              <s_rp_guest>
-                                <div class="write_info_form">
-                                  <input
-                                    type="text"
-                                    name="[##_rp_input_name_##]"
-                                    placeholder="Username"
-                                    value="[##_guest_name_##]"
-                                  />
-                                  <input
-                                    type="password"
-                                    placeholder="Password"
-                                    maxlength="8"
-                                    name="[##_rp_input_password_##]"
-                                    value="[##_rp_admin_check_##]"
-                                  />
-                                  <input
-                                    type="text"
-                                    class="homepage"
-                                    placeholder="Homepage"
-                                    name="[##_rp_input_homepage_##]"
-                                    value="[##_guest_homepage_##]"
-                                  />
-                                </div>
-                              </s_rp_guest>
-
-                              <!-- 비밀글 여부 폼 -->
-                              <div class="write_secret_form">
-                                <label for="secret"> 비밀글 </label>
-                                <input
-                                  type="checkbox"
-                                  name="[##_rp_input_is_secret_##]"
-                                  class="checkbox"
-                                />
-                              </div>
-                            </s_rp_member>
-
-                            <!-- 댓글 입력 폼 -->
-                            <div class="write_comment_form">
-                              <textarea
-                                name="[##_rp_input_comment_##]"
-                              ></textarea>
-                              <input
-                                type="submit"
-                                value="댓글 달기"
-                                onclick="[##_rp_onclick_submit_##]"
-                              />
+                <h6>COMMENT LIST</h6>
+                <div class="comment_list">
+                  <s_guest_container>
+                    <ol>
+                      <s_guest_rep>
+                        <li id="[##_guest_rep_id_##]">
+                          <div class="[##_guest_rep_class_##]">
+                            <div class="replier_info">
+                              <img src="[##_guest_rep_logo_##]" alt="Replier profile image" />
+                              <span class="name">[##_guest_rep_name_##]</span>
+                              <span class="date">
+                                [##_guest_rep_date_##]</span>
+                              <a href="#" onclick="[##_guest_rep_onclick_delete_##]" class="modify">&nbsp;
+                                <span>MODIFY/DELETE</span>
+                              </a>
+                              <a href="#" onclick="[##_guest_rep_onclick_reply_##]" class="write">&nbsp;
+                                <span>REPLY</span>
+                              </a>
                             </div>
-                          </s_rp_input_form>
-                        </div>
-
-                        <h6>COMMENT LIST</h6>
-                        <div class="comment_list">
-                          <s_rp_container>
-                            <ol>
-                              <s_rp_rep>
-                                <li id="[##_rp_rep_id_##]">
-                                  <div class="[##_rp_rep_class_##]">
+                            <p>[##_guest_rep_desc_##]</p>
+                          </div>
+                          <s_guest_reply_container>
+                            <ul>
+                              <s_guest_reply_rep>
+                                <li id="[##_guest_rep_id_##]">
+                                  <div class="[##_guest_rep_class_##]">
                                     <div class="replier_info">
-                                      <img
-                                        src="[##_rp_rep_logo_##]"
-                                        alt="Replier profile image"
-                                      />
-                                      <span class="name"
-                                        >[##_rp_rep_name_##]</span
-                                      >
+                                      <img src="[##_guest_rep_logo_##]" alt="Replier profile image" />
+                                      <span class="name">[##_guest_rep_name_##]</span>
                                       <span class="date">
-                                        [##_rp_rep_date_##]</span
-                                      >
-                                      <a
-                                        href="[##_rp_rep_link_##]"
-                                        class="address"
-                                        >&nbsp;
-                                        <span>댓글주소</span>
-                                      </a>
-                                      <a
-                                        href="#"
-                                        onclick="[##_rp_rep_onclick_delete_##]"
-                                        class="modify"
-                                        >&nbsp;
+                                        [##_guest_rep_date_##]</span>
+                                      <a href="#" onclick="[##_guest_rep_onclick_delete_##]" class="modify">&nbsp;
                                         <span>MODIFY/DELETE</span>
                                       </a>
-                                      <a
-                                        href="#"
-                                        onclick="[##_rp_rep_onclick_reply_##]"
-                                        class="write"
-                                        >&nbsp;
-                                        <span>REPLY</span>
-                                      </a>
                                     </div>
-                                    <p>[##_rp_rep_desc_##]</p>
+                                    <p>[##_guest_rep_desc_##]</p>
                                   </div>
-                                  <s_rp2_container>
-                                    <ul>
-                                      <s_rp2_rep>
-                                        <li id="[##_rp_rep_id_##]">
-                                          <div class="[##_rp_rep_class_##]">
-                                            <div class="replier_info">
-                                              <img
-                                                src="[##_rp_rep_logo_##]"
-                                                alt="Replier profile image"
-                                              />
-                                              <span class="name"
-                                                >[##_rp_rep_name_##]</span
-                                              >
-                                              <span class="date">
-                                                [##_rp_rep_date_##]</span
-                                              >
-                                              <a
-                                                href="[##_rp_rep_link_##]"
-                                                class="address"
-                                                >&nbsp;
-                                                <span>댓글주소</span>
-                                              </a>
-                                              <a
-                                                href="#"
-                                                onclick="[##_rp_rep_onclick_delete_##]"
-                                                class="modify"
-                                                >&nbsp;
-                                                <span>MODIFY/DELETE</span>
-                                              </a>
-                                            </div>
-                                            <p>[##_rp_rep_desc_##]</p>
-                                          </div>
-                                        </li>
-                                      </s_rp2_rep>
-                                    </ul>
-                                  </s_rp2_container>
                                 </li>
-                              </s_rp_rep>
-                            </ol>
-                          </s_rp_container>
+                              </s_guest_reply_rep>
+                            </ul>
+                          </s_guest_reply_container>
+                        </li>
+                      </s_guest_rep>
+                    </ol>
+                  </s_guest_container>
+                </div>
+              </s_guest>
+            </div>
+
+            <!-- 커버 화면 -->
+            <div>
+              [##_revenue_list_upper_##]
+            </div>
+            <s_cover_group>
+              <s_cover_rep>
+                <s_cover name="thumbnail">
+                  <div class="home_post_wrapper">
+                    <s_cover_item>
+                      <div class="home_post">
+                        <div class="home_post_img">
+                          <s_cover_item_thumbnail>
+                            <img src="[##_cover_item_thumbnail_##]"
+                              onclick="window.location='[##_cover_item_url_##]'" />
+                          </s_cover_item_thumbnail>
                         </div>
-                      </s_rp>
+                        <div class="home_post_desc">
+                          <a href="[##_cover_item_url_##]" class="home_post_title">[##_cover_item_title_##]</a>
+                          <p class="home_post_date">
+                            <a href="[##_cover_item_url_##]" class="home_post_category">
+                              [##_cover_item_category_##]
+                            </a>
+                            [##_cover_item_simple_date_##]
+                          </p>
+
+                          <p class="home_post_summary">
+                            [##_cover_item_summary_##]
+                          </p>
+                        </div>
+                      </div>
+                    </s_cover_item>
+                  </div>
+                </s_cover>
+              </s_cover_rep>
+            </s_cover_group>
+
+            <!-- 하단 광고 -->
+            <div>
+              [##_revenue_list_lower_##]
+            </div>
+
+            <s_article_rep>
+              <!-- 홈 화면 -->
+              <div class="home_post_wrapper">
+                <s_index_article_rep>
+                  <div class="home_post">
+                    <div class="home_post_img">
+                      <s_article_rep_thumbnail>
+                        <a href="[##_article_rep_link_##]">
+                          <img src="[##_article_rep_thumbnail_url_##]" />
+                        </a>
+                      </s_article_rep_thumbnail>
+                    </div>
+
+                    <div class="home_post_desc">
+                      <a href="[##_article_rep_link_##]" class="home_post_title">
+                        [##_article_rep_title_##]
+                      </a>
+                      <p class="home_post_date">
+                        <a href="[##_article_rep_category_link_##]" class="home_post_category">
+                          [##_article_rep_category_##]
+                        </a>
+                        [##_article_rep_date_##]
+                      </p>
+
+                      <p class="home_post_summary">
+                        [##_article_rep_summary_##]
+                      </p>
                     </div>
                   </div>
-                </s_permalink_article_rep>
-              </s_article_rep>
-            </main>
-          </div>
-        </div>
+                </s_index_article_rep>
+              </div>
 
-        <footer>
-          Copyright&nbsp;©&nbsp;<a href="[##_blog_link_##]">[##_blogger_##]</a
-          >&nbsp;All&nbsp;rights&nbsp;reserved.&nbsp;/&nbsp;Designed&nbsp;by&nbsp;<a
-            href="https://memostack.tistory.com/"
-            target="_blank"
-            >Taehong&nbsp;Kim</a
-          >.
-        </footer>
+              <!-- 본문 화면 -->
+              <s_permalink_article_rep>
+                <div class="board_post_wrapper">
+                  <h6>POST</h6>
+
+                  <div class="board_post_title">
+                    <h2>
+                      <a href="[##_article_rep_link_##]">[##_article_rep_title_##]</a>
+                    </h2>
+                    <div class="board_post_date">
+                      <a href="[##_article_rep_category_link_##]">[##_article_rep_category_##]</a>
+                      <span>[##_article_rep_date_##]</span>
+                    </div>
+                    <div class="board_post_date">
+                      <s_ad_div>
+                        <div class="admin">
+                          <a href="[##_s_ad_m_link_##]">수정</a> :
+                          <a href="#" onclick="[##_s_ad_m_onclick_##]">수정(창으로)</a>
+                          | ([##_s_ad_s1_label_##])→<a href="#"
+                            onclick="[##_s_ad_s2_onclick_##]">[##_s_ad_s2_label_##]</a>
+                          |
+                          <a href="#" onclick="[##_s_ad_t_onclick_##]">관련글(트랙백)</a>
+                          |
+                          <a href="#" onclick="[##_s_ad_d_onclick_##]">삭제</a>
+                        </div>
+                      </s_ad_div>
+                    </div>
+                  </div>
+
+                  <!-- Board Post -->
+                  <div class="board_post_content">
+                    [##_article_rep_desc_##]
+                  </div>
+
+                  <!-- Comment -->
+                  <div class="board_comment">
+                    <s_rp>
+                      <h6>COMMENT WRITE</h6>
+                      <div class="board_comment_write_form">
+                        <s_rp_input_form>
+                          <!-- 계정정보 입력 폼 -->
+                          <s_rp_member>
+                            <s_rp_guest>
+                              <div class="write_info_form">
+                                <input type="text" name="[##_rp_input_name_##]" placeholder="Username"
+                                  value="[##_guest_name_##]" />
+                                <input type="password" placeholder="Password" maxlength="8"
+                                  name="[##_rp_input_password_##]" value="[##_rp_admin_check_##]" />
+                                <input type="text" class="homepage" placeholder="Homepage"
+                                  name="[##_rp_input_homepage_##]" value="[##_guest_homepage_##]" />
+                              </div>
+                            </s_rp_guest>
+
+                            <!-- 비밀글 여부 폼 -->
+                            <div class="write_secret_form">
+                              <label for="secret"> 비밀글 </label>
+                              <input type="checkbox" name="[##_rp_input_is_secret_##]" class="checkbox" />
+                            </div>
+                          </s_rp_member>
+
+                          <!-- 댓글 입력 폼 -->
+                          <div class="write_comment_form">
+                            <textarea name="[##_rp_input_comment_##]"></textarea>
+                            <input type="submit" value="댓글 달기" onclick="[##_rp_onclick_submit_##]" />
+                          </div>
+                        </s_rp_input_form>
+                      </div>
+
+                      <h6>COMMENT LIST</h6>
+                      <div class="comment_list">
+                        <s_rp_container>
+                          <ol>
+                            <s_rp_rep>
+                              <li id="[##_rp_rep_id_##]">
+                                <div class="[##_rp_rep_class_##]">
+                                  <div class="replier_info">
+                                    <img src="[##_rp_rep_logo_##]" alt="Replier profile image" />
+                                    <span class="name">[##_rp_rep_name_##]</span>
+                                    <span class="date">
+                                      [##_rp_rep_date_##]</span>
+                                    <a href="[##_rp_rep_link_##]" class="address">&nbsp;
+                                      <span>댓글주소</span>
+                                    </a>
+                                    <a href="#" onclick="[##_rp_rep_onclick_delete_##]" class="modify">&nbsp;
+                                      <span>MODIFY/DELETE</span>
+                                    </a>
+                                    <a href="#" onclick="[##_rp_rep_onclick_reply_##]" class="write">&nbsp;
+                                      <span>REPLY</span>
+                                    </a>
+                                  </div>
+                                  <p>[##_rp_rep_desc_##]</p>
+                                </div>
+                                <s_rp2_container>
+                                  <ul>
+                                    <s_rp2_rep>
+                                      <li id="[##_rp_rep_id_##]">
+                                        <div class="[##_rp_rep_class_##]">
+                                          <div class="replier_info">
+                                            <img src="[##_rp_rep_logo_##]" alt="Replier profile image" />
+                                            <span class="name">[##_rp_rep_name_##]</span>
+                                            <span class="date">
+                                              [##_rp_rep_date_##]</span>
+                                            <a href="[##_rp_rep_link_##]" class="address">&nbsp;
+                                              <span>댓글주소</span>
+                                            </a>
+                                            <a href="#" onclick="[##_rp_rep_onclick_delete_##]" class="modify">&nbsp;
+                                              <span>MODIFY/DELETE</span>
+                                            </a>
+                                          </div>
+                                          <p>[##_rp_rep_desc_##]</p>
+                                        </div>
+                                      </li>
+                                    </s_rp2_rep>
+                                  </ul>
+                                </s_rp2_container>
+                              </li>
+                            </s_rp_rep>
+                          </ol>
+                        </s_rp_container>
+                      </div>
+                    </s_rp>
+                  </div>
+                </div>
+              </s_permalink_article_rep>
+            </s_article_rep>
+          </main>
+        </div>
       </div>
 
-      <s_if_var_displayVisitChart>
-        <s_sidebar>
-          <s_sidebar_element>
-            <!-- 통계 그래프 -->
-            <input
-              type="hidden"
-              name="count_total"
-              value="[##_count_total_##]"
-            />
-            <input
-              type="hidden"
-              name="count_today"
-              value="[##_count_today_##]"
-            />
-            <input
-              type="hidden"
-              name="count_yesterday"
-              value="[##_count_yesterday_##]"
-            />
+      <footer>
+        Copyright&nbsp;©&nbsp;<a
+          href="[##_blog_link_##]">[##_blogger_##]</a>&nbsp;All&nbsp;rights&nbsp;reserved.&nbsp;/&nbsp;Designed&nbsp;by&nbsp;<a
+          href="https://memostack.tistory.com/" target="_blank">Taehong&nbsp;Kim</a>.
+      </footer>
+    </div>
+  </s_t3>
+</body>
 
-            <!-- Javascript - Chart -->
-            <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-            <script>
-              function getNumLength(num) {
-                let result = 0;
-                while (num > 10) {
-                  num /= 10;
-                  result++;
-                }
-                return result;
-              }
-              function getMaxNum(num1, num2) {
-                return num1 > num2 ? num1 : num2;
-              }
-
-              function drawChart() {
-                const total = document.querySelector("input[name=count_total]")
-                  .value;
-                const today = document.querySelector("input[name=count_today]")
-                  .value;
-                const yesterday = document.querySelector(
-                  "input[name=count_yesterday]"
-                ).value;
-
-                const length = getMaxNum(
-                  getNumLength(today),
-                  getNumLength(yesterday)
-                );
-                const carry = length > 1 ? Math.pow(10, length) : 1;
-                const ctx = document.querySelector("#visitChart");
-                const myBarChart = new Chart(ctx, {
-                  type: "bar",
-                  data: {
-                    labels: ["Yesterday", "Today", "Total(x" + carry + ")"],
-                    datasets: [
-                      {
-                        label: "Count",
-                        data: [
-                          yesterday,
-                          today,
-                          parseInt(total.replace(",", "")) / parseInt(carry),
-                        ],
-                        backgroundColor: [
-                          "rgba(255, 99, 132, 0.2)",
-                          "rgba(54, 162, 235, 0.2)",
-                          "rgba(255, 206, 86, 0.2)",
-                        ],
-                        borderColor: [
-                          "rgba(255, 99, 132, 1)",
-                          "rgba(54, 162, 235, 1)",
-                          "rgba(255, 206, 86, 1)",
-                        ],
-                        borderWidth: 1,
-                      },
-                    ],
-                  },
-                  options: {
-                    legend: {
-                      display: false,
-                    },
-                    scales: {
-                      yAxes: [
-                        {
-                          ticks: {
-                            beginAtZero: true,
-                          },
-                        },
-                      ],
-                    },
-                  },
-                });
-              }
-
-              window.onload = function () {
-                drawChart();
-              };
-            </script>
-          </s_sidebar_element>
-        </s_sidebar>
-      </s_if_var_displayVisitChart>
-    </s_t3>
-  </body>
 </html>
