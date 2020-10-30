@@ -506,6 +506,25 @@ footer {
   align-items: center;
 }
 
+/* ETC */
+.alert {
+  color: #ffffff;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 250px;
+  padding: 5px 20px;
+}
+.alert_danger {
+  background-color: #f03e3e;
+}
+.alert_show {
+  display: block;
+}
+.alert_hide {
+  display: none;
+}
+
 /* 반응형 Large */
 @media screen and (max-width: 1140px) {
   /* Sidemenu */
