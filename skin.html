@@ -40,6 +40,18 @@
     <meta name="naver-site-verification" content="[##_var_naverWebMaster_##]" />
     <!-- WEB Master - BING -->
     <meta name="msvalidate.01" content="[##_var_bingWebMaster_##]" />
+
+    <style>
+      a {
+        color: [##_var_primary_color_##];
+      }
+      a:hover {
+        color: [##_var_secondary_color_##];
+      }
+      header nav ul li a:hover {
+        border-bottom: 2px solid [##_var_secondary_color_##];
+      }
+    </style>
   </head>
 
   <body id="[##_body_id_##]" class="[##_var_theme_##]">
@@ -48,10 +60,12 @@
         <!-- Header -->
         <header role="header">
           <!-- logo -->
-          <a class="logo-wrapper" href="[##_blog_link_##]">
-            <img src="[##_image_##]" alt="profile image" />
-            <h2>[##_title_##]</h2>
-          </a>
+          <s_if_var_show_logo>
+            <a class="logo_wrapper" href="[##_blog_link_##]">
+              <img src="[##_var_logo_image_##]" alt="profile image" />
+            </a>
+          </s_if_var_show_logo>
+
           <!-- Navigation Bar -->
           <nav>[##_blog_menu_##]</nav>
         </header>
@@ -59,10 +73,91 @@
         <!-- Main Contents -->
         <main role="main">
           <!-- Menu Section -->
-          <section>menu</section>
+          <section class="menu_container">
+            <div class="menu_wrapper">
+              <!-- profile -->
+              <div class="menu_item">
+                <h6>
+                  <svg
+                    width="1em"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    class="bi bi-person-circle"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"
+                    /></svg
+                  ><span>Profile</span>
+                </h6>
+                <!-- Profile Image -->
+                <s_if_var_show_profile_image>
+                  <div
+                    class="profile [##_var_profile_border_weight_##] [##_var_profile_image_feature_##]"
+                  >
+                    <img src="[##_image_##]" alt="profile image" />
+                  </div>
+                </s_if_var_show_profile_image>
+
+                <!-- Blog Descriptions -->
+                <div class="description"></div>
+              </div>
+
+              <!-- Blog Visitor Chart -->
+              <div class="menu_item">
+                <h6>
+                  <svg
+                    width="1em"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    class="bi bi-bar-chart-line"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2zm1 12h2V2h-2v12zm-3 0V7H7v7h2zm-5 0v-3H2v3h2z"
+                    />
+                  </svg>
+                  <span> Visitor Count</span>
+                </h6>
+              </div>
+
+              <!-- Category -->
+              <div class="menu_item">
+                <h6>
+                  <svg
+                    width="1em"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    class="bi bi-bookmark"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"
+                    />
+                  </svg>
+                  <span>Category</span>
+                </h6>
+              </div>
+            </div>
+          </section>
 
           <!-- Article Section -->
-          <section>acticle</section>
+          <section class="article_container">
+            <div class="article_wrapper">acticle</div>
+          </section>
         </main>
 
         <!-- Footer -->

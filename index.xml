@@ -73,10 +73,12 @@
 
   <!-- Variable -->
   <variables>
+
+    <!-- WEB Master -->
     <variablegroup name="WEB Master 등록">
       <variable>
         <name>googleWebMaster</name>
-        <label>GOOGLE 웹 마스터</label>
+        <label><![CDATA[GOOGLE 웹 마스터]]></label>
         <description>Google의 웹 마스터를 등록 할 수 있습니다.</description>
         <type>STRING</type>
         <option></option>
@@ -84,7 +86,7 @@
       </variable>
       <variable>
         <name>naverWebMaster</name>
-        <label>NAVER 웹 마스터</label>
+        <label><![CDATA[NAVER 웹 마스터]]></label>
         <description>Naver의 웹 마스터를 등록 할 수 있습니다.</description>
         <type>STRING</type>
         <option></option>
@@ -92,7 +94,7 @@
       </variable>
       <variable>
         <name>bingWebMaster</name>
-        <label>BING 웹 마스터</label>
+        <label><![CDATA[BING 웹 마스터]]></label>
         <description>Microsoft의 Bing 웹 마스터를 등록 할 수 있습니다.</description>
         <type>STRING</type>
         <option></option>
@@ -100,25 +102,90 @@
       </variable>
     </variablegroup>
 
-    <variablegroup name="구성 요소 보이기/숨기기">
+    <!-- Color -->
+    <variablegroup name="하이라이트 색상">
       <variable>
-        <name>displayProfileImage</name>
-        <label>프로필 사진 보이기/숨기기</label>
-        <description>프로필 사진을 보이게 하거나 숨길 수 있습니다.</description>
+        <name>primary_color</name>
+        <label><![CDATA[주요 색상 Primary]]></label>
+        <description>블로그 하이라이트 색상을 선택할 수 있습니다.</description>
+        <type>COLOR</type>
+        <option></option>
+        <default><![CDATA[#20c997]]></default>
+      </variable>
+      <variable>
+        <name>secondary_color</name>
+        <label><![CDATA[보조 색상 Secondary]]></label>
+        <description>블로그 하이라이트 색상을 선택할 수 있습니다.</description>
+        <type>COLOR</type>
+        <option></option>
+        <default><![CDATA[#38d9a9]]></default>
+      </variable>
+    </variablegroup>
+
+    <!-- Logo -->
+    <variablegroup name="로고">
+      <variable>
+        <name>logo_image</name>
+        <label><![CDATA[로고 이미지]]></label>
+        <description>블로그 하이라이트 색상을 선택할 수 있습니다.</description>
+        <type>IMAGE</type>
+        <option></option>
+        <default><![CDATA[https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FH3lpS%2FbtqNU1LsUmY%2FKVL9L9ZjNi9RzlbUIAkk81%2Fimg.jpg]]></default>
+      </variable>
+      <variable>
+        <name>show_logo</name>
+        <label><![CDATA[로고 보이기/숨기기]]></label>
+        <description>로고 이미지를 보이게 하거나 숨깁니다.</description>
         <type>BOOL</type>
         <option></option>
         <default>true</default>
       </variable>
     </variablegroup>
 
-    <variablegroup name="구성 요소 보이기/숨기기">
+    <!-- Profile -->
+    <variablegroup name="프로필 설정">
       <variable>
-        <name>displayProfileImage</name>
-        <label>프로필 사진 보이기/숨기기</label>
+        <name>show_profile_image</name>
+        <label><![CDATA[프로필 사진 보이기/숨기기]]></label>
         <description>프로필 사진을 보이게 하거나 숨길 수 있습니다.</description>
         <type>BOOL</type>
         <option></option>
         <default>true</default>
+      </variable>
+
+      <variable>
+        <name>profile_image_feature</name>
+        <label><![CDATA[프로필 사진 형태 선택]]></label>
+        <description></description>
+        <type>SELECT</type>
+        <option>
+          <![CDATA[
+            [
+              {"name":"circleImage", "label":"원형 프로필 사진", "value":"circle_image"},
+              {"name":"rectImage", "label":"사각형 프로필 사진", "value":"rect_image"},
+              {"name":"roundRectImage", "label":"둥근 사각형 프로필 사진", "value":"round_rect_image"}
+            ]
+          ]]>
+        </option>
+        <default><![CDATA[circle_image]]></default>
+      </variable>
+
+      <variable>
+        <name>profile_border_weight</name>
+        <label><![CDATA[프로필 테두리 굵기]]></label>
+        <description></description>
+        <type>SELECT</type>
+        <option>
+          <![CDATA[
+            [
+              {"name":"none", "label":"테두리 없음", "value":"none_image_border"},
+              {"name":"low", "label":"얇은 굵기", "value":"thin_image_border"},
+              {"name":"middle", "label":"중간 굵기", "value":"middle_image_border"},
+              {"name":"high", "label":"두꺼운 굵기", "value":"bold_image_border"}
+            ]
+          ]]>
+        </option>
+        <default><![CDATA[none_image_border]]></default>
       </variable>
 
       <variable>
@@ -173,43 +240,6 @@
           ]]>
         </option>
         <default>leftOrder</default>
-      </variable>
-    </variablegroup>
-    
-    <variablegroup name="프로필 설정">
-      <variable>
-        <name>profileImageFeature</name>
-        <label>프로필 사진 형태 선택</label>
-        <description></description>
-        <type>SELECT</type>
-        <option>
-					<![CDATA[
-            [
-              {"name":"circleImage", "label":"원형 프로필 사진", "value":"circleImage"},
-              {"name":"rectImage", "label":"사각형 프로필 사진", "value":"rectImage"},
-              {"name":"roundRectImage", "label":"둥근 사각형 프로필 사진", "value":"roundRectImage"}
-            ]
-          ]]>
-        </option>
-        <default>circleImage</default>
-      </variable>
-
-      <variable>
-        <name>profileBorderWeight</name>
-        <label>프로필 테두리 굵기</label>
-        <description></description>
-        <type>SELECT</type>
-        <option>
-					<![CDATA[
-            [
-              {"name":"none", "label":"테두리 없음", "value":"none"},
-              {"name":"low", "label":"얇은 굵기", "value":"low"},
-              {"name":"middle", "label":"중간 굵기", "value":"middle"},
-              {"name":"high", "label":"두꺼운 굵기", "value":"high"}
-            ]
-          ]]>
-        </option>
-        <default>none</default>
       </variable>
     </variablegroup>
 
