@@ -2,7 +2,7 @@
 <skin>
   <information>
     <name>MINIMAL SKIN</name>
-    <version>1.1.0.2</version>
+    <version>2.0.0.0</version>
     <description>
       <![CDATA[단순함을 추구하는 TISTORY 'MINIMAL SKIN'입니다.]]>
     </description>
@@ -54,14 +54,14 @@
 	<liststyle>
 		<item>
 			<label>기본 타입</label>
-			<value>thumbnail</value>
+			<value>default</value>
 		</item>
 	</liststyle>
 
-  <!-- Cover -->
+    <!-- Cover -->
 	<cover>
 		<item>
-			<name>thumbnail</name>
+			<name>default</name>
 			<label>
 				<![CDATA[ 기본 타입 ]]>
 			</label>
@@ -99,7 +99,18 @@
         <default></default>
       </variable>
     </variablegroup>
-    
+
+    <variablegroup name="구성 요소 보이기/숨기기">
+      <variable>
+        <name>displayProfileImage</name>
+        <label>프로필 사진 보이기/숨기기</label>
+        <description>프로필 사진을 보이게 하거나 숨길 수 있습니다.</description>
+        <type>BOOL</type>
+        <option></option>
+        <default>true</default>
+      </variable>
+    </variablegroup>
+
     <variablegroup name="구성 요소 보이기/숨기기">
       <variable>
         <name>displayProfileImage</name>
