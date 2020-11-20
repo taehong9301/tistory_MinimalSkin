@@ -1,23 +1,25 @@
 @charset "utf-8";
 
 /* 폰트 */
-@font-face {
-  font-family: "GyeonggiBatang";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GyeonggiBatang.woff")
-    format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
+/*@font-face {*/
+/*  font-family: "GyeonggiBatang";*/
+/*  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GyeonggiBatang.woff")*/
+/*    format("woff");*/
+/*  font-weight: normal;*/
+/*  font-style: normal;*/
+/*}*/
 
 /* 사용한 color */
 color {
+  color: #f8f9fa;
   color: #495057;
 }
 
 /* 초기화 */
 body {
-  font-family: "GyeonggiBatang";
+  font-family: "D2Coding", "GyeonggiBatang";
   color: #495057;
+  line-height: 1.5em;
 }
 body,
 div,
@@ -95,7 +97,7 @@ main {
 
 /*************** Main - Menu */
 main .menu_container {
-  width: 330px;
+  width: 350px;
 }
 main .menu_container .menu_wrapper {
   padding: 15px;
@@ -104,13 +106,13 @@ main .menu_container .menu_wrapper {
 }
 .menu_container .menu_wrapper .menu_item {
   flex: 1;
-  padding: 8px;
+  padding: 10px;
   margin-bottom: 20px;
   transition: 0.2s;
+  border: 1px solid #f8f9fa;
 }
 .menu_container .menu_wrapper .menu_item:hover {
-  background-color: #495057;
-  color: #ffffff;
+  border: 1px solid #e9ecef;
 }
 
 .menu_wrapper .menu_item h6 {
@@ -118,6 +120,7 @@ main .menu_container .menu_wrapper {
   justify-content: flex-start;
   align-items: center;
   font-size: 1em;
+  margin-bottom: 15px;
 }
 .menu_item h6 span {
   display: inline-block;
@@ -136,6 +139,14 @@ main .menu_container .menu_wrapper {
   width: 100%;
   height: auto;
 }
+.menu_item .description .profile_title {
+  font-weight: bold;
+  text-align: center;
+}
+.menu_item .description .profile_desc {
+  text-align: center;
+}
+
 .menu_wrapper .menu_item .circle_image {
   border-radius: 100%;
 }

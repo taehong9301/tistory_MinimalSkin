@@ -30,6 +30,9 @@
     <!-- CSS -->
     <link rel="stylesheet" href="./style.css" />
 
+    <!-- Javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
     <!-- WEB Master -->
     <!-- WEB Master - Google -->
     <meta
@@ -42,6 +45,10 @@
     <meta name="msvalidate.01" content="[##_var_bingWebMaster_##]" />
 
     <style>
+      [##_var_font_style_##] body {
+        font-family: "NanumSquareRound", "NanumBarunpen", "MaruBuri-Regular",
+          "D2Coding", "NanumBarunGothic";
+      }
       a {
         color: [##_var_primary_color_##];
       }
@@ -109,48 +116,160 @@
                 </s_if_var_show_profile_image>
 
                 <!-- Blog Descriptions -->
-                <div class="description"></div>
+                <div class="description">
+                  <p class="profile_title">[##_title_##] ([##_blogger_##])</p>
+                  <p class="profile_desc">[##_desc_##]</p>
+                </div>
               </div>
 
-              <!-- Blog Visitor Chart -->
-              <div class="menu_item">
-                <h6>
-                  <svg
-                    width="1em"
-                    height="1em"
-                    viewBox="0 0 16 16"
-                    class="bi bi-bar-chart-line"
-                    fill="currentColor"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2zm1 12h2V2h-2v12zm-3 0V7H7v7h2zm-5 0v-3H2v3h2z"
-                    />
-                  </svg>
-                  <span> Visitor Count</span>
-                </h6>
-              </div>
+              <s_sidebar>
+                <s_sidebar_element>
+                  <!-- Blog Visitor Chart -->
+                  <s_if_var_show_visitor_chart>
+                    <div class="menu_item">
+                      <h6>
+                        <svg
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 16 16"
+                          class="bi bi-bar-chart-line"
+                          fill="currentColor"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2zm1 12h2V2h-2v12zm-3 0V7H7v7h2zm-5 0v-3H2v3h2z"
+                          />
+                        </svg>
+                        <span> Visitor Count</span>
+                      </h6>
 
-              <!-- Category -->
-              <div class="menu_item">
-                <h6>
-                  <svg
-                    width="1em"
-                    height="1em"
-                    viewBox="0 0 16 16"
-                    class="bi bi-bookmark"
-                    fill="currentColor"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"
-                    />
-                  </svg>
-                  <span>Category</span>
-                </h6>
-              </div>
+                      <input
+                        type="hidden"
+                        name="count_total"
+                        value="[##_count_total_##]"
+                      />
+                      <input
+                        type="hidden"
+                        name="count_today"
+                        value="[##_count_today_##]"
+                      />
+                      <input
+                        type="hidden"
+                        name="count_yesterday"
+                        value="[##_count_yesterday_##]"
+                      />
+
+                      <canvas id="visitorCount"></canvas>
+                      <script type="text/javascript">
+                        // 차트를 그린다.
+                        function drawChart() {
+                          // 전체 방문자 수
+                          var total = document
+                            .querySelector("input[name=count_total]")
+                            .value.replace(",", "");
+
+                          // 오늘 방문자 수
+                          var today = document.querySelector(
+                            "input[name=count_today]"
+                          ).value;
+
+                          // 어제 방문자 수
+                          var yesterday = document.querySelector(
+                            "input[name=count_yesterday]"
+                          ).value;
+
+                          // carry 값 구하기
+                          var length =
+                            today.length > yesterday.length
+                              ? today.length
+                              : yesterday.length;
+                          var carry = Math.pow(10, total.length - length);
+
+                          // 전체 방문자 수 업데이트
+                          total /= carry;
+
+                          // 차트를 그린다.
+                          new Chart(
+                            document
+                              .querySelector("#visitorCount")
+                              .getContext("2d"),
+                            {
+                              type: "bar",
+                              data: {
+                                labels: [
+                                  "어제",
+                                  "오늘",
+                                  "전체 " + total * carry + "/" + carry,
+                                ],
+                                datasets: [
+                                  {
+                                    label: "Count",
+                                    data: [yesterday, today, total],
+                                    backgroundColor: [
+                                      "rgba(75, 192, 192, 0.2)",
+                                      "rgba(54, 162, 235, 0.2)",
+                                      "rgba(255, 206, 86, 0.2)",
+                                    ],
+                                    borderColor: [
+                                      "rgba(75, 192, 192, 1)",
+                                      "rgba(54, 162, 235, 1)",
+                                      "rgba(255, 206, 86, 1)",
+                                    ],
+                                    borderWidth: 1,
+                                  },
+                                ],
+                              },
+                              options: {
+                                legend: {
+                                  display: false,
+                                },
+                                scales: {
+                                  yAxes: [
+                                    {
+                                      ticks: {
+                                        beginAtZero: true,
+                                      },
+                                    },
+                                  ],
+                                },
+                              },
+                            }
+                          );
+                        }
+
+                        window.onload = function () {
+                          // 문서를 모두 불러온 다음에 차트를 그림
+                          drawChart();
+                        };
+                      </script>
+                    </div>
+                  </s_if_var_show_visitor_chart>
+                </s_sidebar_element>
+
+                <s_sidebar_element>
+                  <!-- Category -->
+                  <div class="menu_item">
+                    <h6>
+                      <svg
+                        width="1em"
+                        height="1em"
+                        viewBox="0 0 16 16"
+                        class="bi bi-bookmark"
+                        fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"
+                        />
+                      </svg>
+                      <span>Category</span>
+                    </h6>
+                    [##_category_list_##]
+                  </div>
+                </s_sidebar_element>
+              </s_sidebar>
             </div>
           </section>
 

@@ -103,7 +103,7 @@
     </variablegroup>
 
     <!-- Color -->
-    <variablegroup name="하이라이트 색상">
+    <variablegroup name="색상 설정">
       <variable>
         <name>primary_color</name>
         <label><![CDATA[주요 색상 Primary]]></label>
@@ -123,7 +123,7 @@
     </variablegroup>
 
     <!-- Logo -->
-    <variablegroup name="로고">
+    <variablegroup name="로고 설정">
       <variable>
         <name>logo_image</name>
         <label><![CDATA[로고 이미지]]></label>
@@ -187,29 +187,44 @@
         </option>
         <default><![CDATA[none_image_border]]></default>
       </variable>
+    </variablegroup>
 
+    <!-- Visitor Count Chart -->
+    <variablegroup name="방문자 차트 설정">
       <variable>
-        <name>displayBlogger</name>
-        <label>블로거 이름 보이기/숨기기</label>
-        <description>블로거 이름을 보이게 하거나 숨길 수 있습니다.</description>
+        <name>show_visitor_chart</name>
+        <label><![CDATA[방문자 차트 보이기/숨기기]]></label>
+        <description>방문자 차트를 보이게 하거나 숨길 수 있습니다.</description>
         <type>BOOL</type>
         <option></option>
         <default>true</default>
+      </variable>
+    </variablegroup>
+
+    <variablegroup name="폰트 설정">
+      <variable>
+        <name>font_style</name>
+        <label><![CDATA[폰트]]></label>
+        <description>폰트를 설정 할수있습니다.</description>
+        <type>SELECT</type>
+        <option>
+          <![CDATA[
+            [
+              {"name":"NanumBarunGothic", "label":"나눔바른고딕", "value":"@font-face {font-family: 'NanumBarunGothic';font-style: normal;font-weight: 400;src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');}@font-face {font-family: 'NanumBarunGothic';font-style: normal;font-weight: 700;src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot');src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.ttf') format('truetype');}@font-face {font-family: 'NanumBarunGothic';font-style: normal;font-weight: 300;src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot');src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.ttf') format('truetype');}"},
+              {"name":"NanumSquareRound", "label":"나눔스퀘어라운드", "value":"@font-face {font-family: 'NanumSquareRound';src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');font-weight: normal;font-style: normal;}"},
+              {"name":"NanumBarunpen", "label":"나눔바른펜", "value":"@font-face {font-family: 'NanumBarunpen';src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumBarunpen.woff') format('woff');font-weight: normal;font-style: normal;}"},
+              {"name":"MaruBuri-Regular", "label":"마루부리", "value":"@font-face {font-family: 'MaruBuri-Regular';src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff') format('woff');font-weight: normal;font-style: normal;}"},
+              {"name":"D2Coding", "label":"D2Coding", "value":"@font-face {font-family: 'D2Coding';src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/D2Coding.woff') format('woff');font-weight: normal;font-style: normal;}"}
+            ]
+          ]]>
+        </option>
+        <default><![CDATA[@font-face {font-family: 'NanumBarunGothic';font-style: normal;font-weight: 400;src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');}@font-face {font-family: 'NanumBarunGothic';font-style: normal;font-weight: 700;src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot');src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.ttf') format('truetype');}@font-face {font-family: 'NanumBarunGothic';font-style: normal;font-weight: 300;src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot');src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.ttf') format('truetype');}]]></default>
       </variable>
 
       <variable>
         <name>displayBlogDesc</name>
         <label>블로그 소개글 보이기/숨기기</label>
         <description>블로그 소개글을 보이게 하거나 숨길 수 있습니다.</description>
-        <type>BOOL</type>
-        <option></option>
-        <default>true</default>
-      </variable>
-
-      <variable>
-        <name>displayVisitChart</name>
-        <label>방문자 차트 보이기/숨기기</label>
-        <description>방문자 차트를 보이게 하거나 숨길 수 있습니다.</description>
         <type>BOOL</type>
         <option></option>
         <default>true</default>
