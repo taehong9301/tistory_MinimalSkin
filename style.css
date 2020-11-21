@@ -1,14 +1,5 @@
 @charset "utf-8";
 
-/* 폰트 */
-/*@font-face {*/
-/*  font-family: "GyeonggiBatang";*/
-/*  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GyeonggiBatang.woff")*/
-/*    format("woff");*/
-/*  font-weight: normal;*/
-/*  font-style: normal;*/
-/*}*/
-
 /* 사용한 color */
 color {
   color: #f8f9fa;
@@ -39,7 +30,7 @@ ul {
   min-height: 100vh;
 }
 .custom_input {
-  padding: 10px;
+  padding: 9px;
   margin: 5px;
   border: 1px solid #ced4da;
   transition: 0.2s ease-in-out;
@@ -57,6 +48,18 @@ ul {
 }
 .n_b_btn:hover {
   cursor: pointer;
+}
+.b_btn {
+  padding: 10px;
+  margin: 5px;
+  background-color: #ffffff;
+  border: 1px solid #adb5bd;
+  color: #495057;
+  transition: 0.1s ease-in-out;
+}
+.b_btn:hover {
+  cursor: pointer;
+  border: 1px solid #495057;
 }
 .short_key {
   color: #adb5bd;
@@ -231,7 +234,7 @@ main .article_container {
 
 /*************** Main - Article */
 main .article_container .article_wrapper {
-  padding: 15px;
+  padding: 15px 0 0 15px;
   display: flex;
   flex-direction: column;
 }
@@ -271,16 +274,57 @@ main .article_container .article_wrapper {
   flex: 1;
 }
 
-/* 반응형 Large */
-@media screen and (max-width: 1140px) {
-  /*************** Main */
-  main {
-    margin-top: 15px;
-  }
+/*************** Main - Article - Tags */
+.article_item .tag_cloud_list li {
+  display: inline-block;
+  padding: 10px;
 }
 
-/* 반응형 Medium */
-@media screen and (max-width: 960px) {
+/*************** Main - Article - GuestBook */
+.article_wrapper .article_item .guest_write_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.article_item .guest_write_wrapper .guest_userpassword_form {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.guest_write_wrapper .guest_userpassword_form div {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.guest_write_wrapper .guest_userpassword_form input {
+  flex: 1;
+}
+.article_item .guest_write_wrapper .guest_textarea_form {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.guest_write_wrapper .guest_textarea_form svg {
+  display: inline-block;
+  padding: 10px 0;
+}
+.guest_write_wrapper .guest_textarea_form textarea {
+  flex: 1;
+  height: 50px;
+  transition: height 0.1s ease-in-out;
+}
+.guest_write_wrapper .guest_textarea_form textarea:focus {
+  height: 100px;
+}
+
+/* 반응형 Large */
+@media screen and (max-width: 1140px) {
   /*************** Header */
   header {
     flex-direction: column;
@@ -292,6 +336,9 @@ main .article_container .article_wrapper {
   }
 
   /*************** Main */
+  main {
+    margin-top: 15px;
+  }
   main.left_order,
   main.right_order {
     flex-direction: column-reverse;
@@ -299,5 +346,9 @@ main .article_container .article_wrapper {
   main .article_container,
   main .menu_container {
     width: 100%;
+  }
+
+  .article_item .guest_write_wrapper .guest_userpassword_form {
+    flex-direction: column;
   }
 }
