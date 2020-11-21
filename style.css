@@ -119,6 +119,12 @@ main {
   display: flex;
   flex-wrap: wrap;
 }
+main.left_order {
+  flex-direction: row;
+}
+main.right_order {
+  flex-direction: row-reverse;
+}
 
 /*************** Main - Menu */
 main .menu_container {
@@ -286,7 +292,8 @@ main .article_container .article_wrapper {
   }
 
   /*************** Main */
-  main {
+  main.left_order,
+  main.right_order {
     flex-direction: column-reverse;
   }
   main .article_container,
