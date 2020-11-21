@@ -56,7 +56,7 @@ header a.logo_wrapper {
   flex: 1;
 }
 header a.logo_wrapper img {
-  padding-left: 15px;
+  padding-left: 50px;
   height: 32px;
 }
 header a.logo_wrapper h2 {
@@ -65,7 +65,7 @@ header a.logo_wrapper h2 {
 }
 header nav {
   flex-wrap: wrap;
-  padding-right: 15px;
+  padding-right: 50px;
 }
 header nav ul {
   flex: 1;
@@ -106,6 +106,9 @@ main .menu_container .menu_wrapper {
 }
 .menu_container .menu_wrapper .menu_item {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   padding: 10px;
   margin-bottom: 20px;
   transition: 0.2s;
@@ -167,6 +170,27 @@ main .menu_container .menu_wrapper {
 }
 .menu_wrapper .menu_item .bold_image_border {
   border: 3px solid #495057;
+}
+
+/*************** Main - Menu - Category */
+.c_cnt {
+  font-size: 0.8em;
+}
+a.link_tit,
+a.link_item,
+a.link_sub_item {
+  display: block;
+  color: #495057;
+  padding: 5px 0;
+  transition: color 0.2s ease-in-out;
+}
+a.link_tit {
+}
+a.link_sub_item {
+}
+a.link_sub_item:before {
+  top: 0;
+  content: "↘";
 }
 
 /*************** Main - Article */
