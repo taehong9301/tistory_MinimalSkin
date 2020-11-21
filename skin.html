@@ -52,9 +52,12 @@
       a {
         color: [##_var_primary_color_##];
       }
-      a:hover {
+
+      a:hover,
+      .n_b_btn:hover {
         color: [##_var_secondary_color_##];
       }
+
       header nav ul li a:hover {
         border-bottom: 2px solid [##_var_secondary_color_##];
       }
@@ -275,12 +278,87 @@
 
           <!-- Article Section -->
           <section class="article_container">
-            <div class="article_wrapper">acticle</div>
+            <div class="article_wrapper">
+              <div class="article_item">
+                <s_sidebar>
+                  <s_sidebar_element>
+                    <!-- 검색 -->
+
+                    <s_search>
+                      <div class="search">
+                        <input
+                          type="text"
+                          placeholder="단축키: Shift + S"
+                          class="custom_input"
+                          name="[##_search_name_##]"
+                          value="[##_search_text_##]"
+                          onkeypress="if (event.keyCode == 13) { [##_search_onclick_submit_##] }"
+                        />
+                        <button
+                          type="submit"
+                          class="n_b_btn"
+                          onclick="[##_search_onclick_submit_##]"
+                        >
+                          <svg
+                            width="1em"
+                            height="1em"
+                            viewBox="0 0 16 16"
+                            class="bi bi-search"
+                            fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"
+                            />
+                            <path
+                              fill-rule="evenodd"
+                              d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                    </s_search>
+                  </s_sidebar_element>
+                </s_sidebar>
+              </div>
+
+              <!-- Article -->
+              <div class="article_item">
+                <h6>
+                  <svg
+                    width="1em"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    class="bi bi-layout-wtf"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M5 1H1v8h4V1zM1 0a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1H1zm13 2H9v5h5V2zM9 1a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9zM5 13H3v2h2v-2zm-2-1a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H3zm12-1H9v2h6v-2zm-6-1a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H9z"
+                    />
+                  </svg>
+                  <span>Article</span>
+                </h6>
+              </div>
+            </div>
           </section>
         </main>
 
         <!-- Footer -->
         <footer role="footer"></footer>
+        <script type="text/javascript">
+          document.onkeyup = function (event) {
+            // 검색 단축키
+            if (event.key.toUpperCase() === "S" && event.shiftKey) {
+              const search = document.querySelector("[name=search]");
+              search.value = "";
+              search.focus();
+              search.value = "";
+            }
+          };
+        </script>
       </div>
     </s_t3>
   </body>
