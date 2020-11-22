@@ -62,7 +62,8 @@ ul, ol {
 }
 .short_key {
   color: #adb5bd;
-  font-size: 0.9em;
+  font-size: 0.8em;
+  font-weight: lighter;
 }
 
 /*************** Header */
@@ -362,6 +363,62 @@ main .article_container .article_wrapper {
   align-items: center;
 }
 
+/*************** Main - Article - default article */
+.default_article_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.default_article_container .default_article_wrapper {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #e9ecef;
+}
+.default_article_container .default_article_wrapper:nth-child(1) {
+  border-top: none;
+}
+.default_article_container .default_article_wrapper .default_article_img {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  background: #f1f3f5;
+}
+.default_article_container .default_article_wrapper .default_article_img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: auto;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: all .2s ease-in-out;
+}
+.default_article_container .default_article_wrapper .default_article_img img:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+.default_article_container .default_article_wrapper .default_article_desc {
+  flex: 1;
+  padding: 10px;
+}
+.default_article_wrapper .default_article_desc .default_article_title {
+  font-weight: bold;
+}
+.default_article_wrapper .default_article_desc .default_article_summary {
+  font-size: 0.8em;
+  transition: all .2s ease-in-out;
+}
+.default_article_wrapper .default_article_desc .default_article_summary:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+.default_article_wrapper .default_article_desc .default_article_date {
+  font-size: 0.8em;
+}
+
 /* 반응형 Large */
 @media screen and (max-width: 1140px) {
   /*************** Header */
@@ -389,5 +446,19 @@ main .article_container .article_wrapper {
 
   .article_item .guest_write_wrapper .guest_userpassword_form {
     flex-direction: column;
+  }
+  main .article_container .article_wrapper {
+    padding: 15px 15px 0 15px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  /*************** Main - Article - default article */
+  .default_article_container .default_article_wrapper {
+    flex-direction: column;
+  }
+  .default_article_container .default_article_wrapper .default_article_img {
+    width: 100%;
+    margin-bottom: 10px;
   }
 }

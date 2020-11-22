@@ -325,26 +325,6 @@
                 </s_sidebar>
               </div>
 
-              <!-- Article -->
-              <div class="article_item">
-                <h6>
-                  <svg
-                    width="1em"
-                    height="1em"
-                    viewBox="0 0 16 16"
-                    class="bi bi-layout-wtf"
-                    fill="currentColor"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M5 1H1v8h4V1zM1 0a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1H1zm13 2H9v5h5V2zM9 1a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9zM5 13H3v2h2v-2zm-2-1a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H3zm12-1H9v2h6v-2zm-6-1a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H9z"
-                    />
-                  </svg>
-                  <span>Article</span>
-                </h6>
-              </div>
-
               <!-- Tag Cloud -->
               <s_tag>
                 <div class="article_item">
@@ -400,7 +380,7 @@
                         d="M1 2.828v9.923c.918-.35 2.107-.692 3.287-.81 1.094-.111 2.278-.039 3.213.492V2.687c-.654-.689-1.782-.886-3.112-.752-1.234.124-2.503.523-3.388.893zm7.5-.141v9.746c.935-.53 2.12-.603 3.213-.493 1.18.12 2.37.461 3.287.811V2.828c-.885-.37-2.154-.769-3.388-.893-1.33-.134-2.458.063-3.112.752zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"
                       />
                       </svg>
-                      <span>Guest Book</span>
+                      <span>Guest Book <span class="short_key">Shift + G</span></span>
                   </h6>
                   <s_guest_input_form>
                     <div class="guest_write_wrapper">
@@ -564,9 +544,64 @@
                       </ol>
                     </div>
                   </s_guest_container>
-
                 </div>
               </s_guest>
+
+              <!-- Article -->
+              <s_cover_group>
+                <s_cover_rep>
+                  <s_cover name="default">
+              <div class="article_item">
+                <h6>
+                  <svg
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 16 16"
+                          class="bi bi-layout-wtf"
+                          fill="currentColor"
+                          xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                            fill-rule="evenodd"
+                            d="M5 1H1v8h4V1zM1 0a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1H1zm13 2H9v5h5V2zM9 1a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9zM5 13H3v2h2v-2zm-2-1a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H3zm12-1H9v2h6v-2zm-6-1a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H9z"
+                    />
+                  </svg>
+                  <span>Article</span>
+                </h6>
+                <div class="default_article_container">
+
+                  <s_cover_item>
+                    <s_cover_item_article_info>
+                    <article class="default_article_wrapper">
+                      <div class="default_article_img">
+                        <s_cover_item_thumbnail>
+                          <img src="[##_cover_item_thumbnail_##]"
+                               onclick="window.location='[##_cover_item_url_##]'" />
+                        </s_cover_item_thumbnail>
+                      </div>
+                      <div class="default_article_desc">
+                        <a href="[##_cover_item_url_##]" class="default_article_title">[##_cover_item_title_##]</a>
+
+                        <p class="default_article_summary" onclick="window.location='[##_cover_item_url_##]'">
+                          [##_cover_item_summary_##]
+                        </p>
+
+                        <p class="default_article_date">
+                          <a href="[##_cover_item_category_url_##]" class="default_article_category">
+                            [##_cover_item_category_##]
+                          </a>
+                          [##_cover_item_date_##]
+                        </p>
+                      </div>
+                    </article>
+                    </s_cover_item_article_info>
+                  </s_cover_item>
+
+                </div>
+              </div>
+                  </s_cover>
+                </s_cover_rep>
+              </s_cover_group>
             </div>
           </section>
         </main>
@@ -575,12 +610,21 @@
         <footer role="footer"></footer>
         <script type="text/javascript">
           document.onkeyup = function (event) {
-            // 검색 단축키
+            // 단축키: 검색
             if (event.key.toUpperCase() === "S" && event.shiftKey) {
               const search = document.querySelector("[name=search]");
               search.value = "";
               search.focus();
               search.value = "";
+            }
+            // 단축키: 방명록 쓰기
+            else if (event.key.toUpperCase() === "G" && event.shiftKey) {
+              const comment = document.querySelector("[name=comment]");
+              if (comment !== null) {
+                comment.value = "";
+                comment.focus();
+                comment.value = "";
+              }
             }
           };
         </script>
