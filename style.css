@@ -9,13 +9,12 @@ color {
 
 /* 초기화 */
 body {
-  font-family: "D2Coding", "GyeonggiBatang";
   color: #495057;
   line-height: 1.5em;
 }
 body,
 div,
-ul,
+ul, ol,
 h6 {
   padding: 0;
   margin: 0;
@@ -23,7 +22,7 @@ h6 {
 a {
   text-decoration: none;
 }
-ul {
+ul, ol {
   list-style: none;
 }
 .container {
@@ -321,6 +320,43 @@ main .article_container .article_wrapper {
 }
 .guest_write_wrapper .guest_textarea_form textarea:focus {
   height: 100px;
+}
+.guest_list_wrapper > ol ul {
+  margin-left: 20px;
+}
+.guest_item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  padding: 15px;
+}
+.guest_item .guest_item_header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding: 10px 0;
+  margin-left: 15px;
+}
+.guest_item .guest_item_header > .name {
+  padding-right: 5px;
+}
+.guest_item .guest_item_header > .date {
+  font-size: 0.8em;
+}
+.guest_item .guest_item_desc {
+  flex: 1;
+  margin-left: 15px;
+}
+.guest_item .guest_item_footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.guest_reply_item {
+  display: flex;
+  align-items: center;
 }
 
 /* 반응형 Large */
