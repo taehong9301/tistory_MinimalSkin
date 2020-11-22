@@ -368,7 +368,7 @@ main .article_container .article_wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
 }
 .default_article_container .default_article_wrapper {
@@ -419,6 +419,108 @@ main .article_container .article_wrapper {
   font-size: 0.8em;
 }
 
+/*************** Main - Article - permalink article */
+.permalink_article_wrapper .permalink_date{
+  font-size: 0.9em;
+  margin: 10px 0;
+}
+.permalink_article_wrapper .permalink_admin {
+  margin: 10px 0;
+}
+.permalink_article_wrapper .permalink_desc {
+  border-top: 1px solid #e9ecef;
+  padding-top: 20px;
+}
+
+/*************** Main - Article - comment */
+.comment_write_wrapper {
+  margin-top: 20px;
+}
+.comment_write_wrapper h6 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 1em;
+  margin-bottom: 15px;
+}
+.comment_write_wrapper h6 span {
+  display: inline-block;
+  padding-left: 10px;
+  flex: 1;
+}
+.comment_write_wrapper .comment_userpassword_form {
+  display: flex;
+  align-items: center;
+}
+.comment_write_wrapper .comment_textarea_form {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.comment_write_wrapper .comment_textarea_form svg {
+  margin-top: 5px;
+}
+.comment_write_wrapper .comment_textarea_form textarea {
+  flex: 1;
+  height: 50px;
+  transition: height 0.1s ease-in-out;
+}
+.comment_write_wrapper .comment_textarea_form textarea:focus {
+  height: 100px;
+}
+.comment_write_wrapper .comment_btn_form {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+/*************** Main - Article - permalink article - contents */
+.tt_article_useless_p_margin p,
+.tt_article_useless_p_margin span{
+  line-height: 2em;
+}
+.tt_article_useless_p_margin ul {
+  padding: 10px 0 10px 20px;
+}
+.tt_article_useless_p_margin figure.imageblock {
+  margin-top: 10px;
+}
+.tt_article_useless_p_margin img {
+  width: 100%;
+}
+.tt_article_useless_p_margin h2 {
+  border-left: 5px solid #ced4da;
+  border-bottom: 1px solid #ced4da;
+  padding: 10px;
+}
+.tt_article_useless_p_margin figcaption {
+  font-style: italic;
+}
+.tt_article_useless_p_margin pre {
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+.tt_article_useless_p_margin pre > code {
+  padding: 20px;
+  border-radius: 0;
+  font-family: Consolas, monaco, monospace;
+  letter-spacing: 1px;
+  line-height: 1.5rem;
+}
+.tt_article_useless_p_margin p > code,
+.tt_article_useless_p_margin div > code,
+.tt_article_useless_p_margin li > code,
+.tt_article_useless_p_margin span > code{
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  display: inline-block;
+  padding: 0 5px;
+  font-size: 0.8em;
+  font-family: Consolas, monaco, monospace;
+}
+
 /* 반응형 Large */
 @media screen and (max-width: 1140px) {
   /*************** Header */
@@ -449,6 +551,20 @@ main .article_container .article_wrapper {
   }
   main .article_container .article_wrapper {
     padding: 15px 15px 0 15px;
+  }
+
+  .comment_write_wrapper .comment_userpassword_form {
+    flex-direction: column;
+  }
+  .comment_write_wrapper .comment_userpassword_form div {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .comment_write_wrapper .comment_userpassword_form div input {
+    flex: 1;
   }
 }
 

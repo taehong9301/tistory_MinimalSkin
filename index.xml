@@ -61,7 +61,7 @@
     <!-- Cover -->
 	<cover>
 		<item>
-			<name>default</name>
+			<name>default_cover</name>
 			<label>
 				<![CDATA[ 기본 타입 ]]>
 			</label>
