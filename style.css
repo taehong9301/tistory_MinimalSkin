@@ -14,7 +14,8 @@ body {
 }
 body,
 div,
-ul, ol,
+ul,
+ol,
 h6 {
   padding: 0;
   margin: 0;
@@ -22,7 +23,8 @@ h6 {
 a {
   text-decoration: none;
 }
-ul, ol {
+ul,
+ol {
   list-style: none;
 }
 .container {
@@ -415,9 +417,12 @@ main .article_container .article_wrapper {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
-.default_article_container .default_article_wrapper .default_article_img img:hover {
+.default_article_container
+  .default_article_wrapper
+  .default_article_img
+  img:hover {
   cursor: pointer;
   opacity: 0.8;
 }
@@ -430,7 +435,7 @@ main .article_container .article_wrapper {
 }
 .default_article_wrapper .default_article_desc .default_article_summary {
   font-size: 0.8em;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 .default_article_wrapper .default_article_desc .default_article_summary:hover {
   cursor: pointer;
@@ -441,7 +446,7 @@ main .article_container .article_wrapper {
 }
 
 /*************** Main - Article - permalink article */
-.permalink_article_wrapper .permalink_date{
+.permalink_article_wrapper .permalink_date {
   font-size: 0.9em;
   margin: 10px 0;
 }
@@ -532,7 +537,6 @@ main .article_container .article_wrapper {
   margin: 0 0 0 5px;
 }
 .comment_list_wrapper .comment_item_footer {
-
 }
 .comment_list_wrapper .comment_reply_item_wrapper {
   display: flex;
@@ -565,7 +569,7 @@ footer {
 
 /*************** Main - Article - permalink article - contents */
 .tt_article_useless_p_margin p,
-.tt_article_useless_p_margin span{
+.tt_article_useless_p_margin span {
   line-height: 2em;
 }
 .tt_article_useless_p_margin ul {
@@ -599,7 +603,7 @@ footer {
 .tt_article_useless_p_margin p > code,
 .tt_article_useless_p_margin div > code,
 .tt_article_useless_p_margin li > code,
-.tt_article_useless_p_margin span > code{
+.tt_article_useless_p_margin span > code {
   background-color: #e9ecef;
   border: 1px solid #ced4da;
   border-radius: 5px;
@@ -657,12 +661,21 @@ footer {
 }
 
 @media screen and (max-width: 540px) {
+  main .article_container .article_wrapper {
+    padding: 15px 5px 0 5px;
+  }
+
   /*************** Main - Article - default article */
   .default_article_container .default_article_wrapper {
     flex-direction: column;
+    padding: 5px 0;
   }
   .default_article_container .default_article_wrapper .default_article_img {
     width: 100%;
     margin-bottom: 10px;
+  }
+  #scroll_to_top {
+    bottom: 20px;
+    right: 30px;
   }
 }
