@@ -220,24 +220,6 @@
         </option>
         <default><![CDATA[@font-face {font-family: 'NanumBarunGothic';font-style: normal;font-weight: 400;src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');}@font-face {font-family: 'NanumBarunGothic';font-style: normal;font-weight: 700;src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot');src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.ttf') format('truetype');}@font-face {font-family: 'NanumBarunGothic';font-style: normal;font-weight: 300;src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot');src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.ttf') format('truetype');}]]></default>
       </variable>
-
-      <variable>
-        <name>displayBlogDesc</name>
-        <label>블로그 소개글 보이기/숨기기</label>
-        <description>블로그 소개글을 보이게 하거나 숨길 수 있습니다.</description>
-        <type>BOOL</type>
-        <option></option>
-        <default>true</default>
-      </variable>
-
-      <variable>
-        <name>displayCategory</name>
-        <label>카테고리 보이기/숨기기</label>
-        <description>카테고리를 보이게 하거나 숨길 수 있습니다.</description>
-        <type>BOOL</type>
-        <option></option>
-        <default>true</default>
-      </variable>
     </variablegroup>
     
     <variablegroup name="사이드 메뉴 위치 변경">
@@ -255,6 +237,24 @@
           ]]>
         </option>
         <default><![CDATA[left_order]]></default>
+      </variable>
+    </variablegroup>
+
+    <variablegroup name="댓글 설정">
+      <variable>
+        <name>order_comment</name>
+        <label><![CDATA[댓글 오름차순/내림차순]]></label>
+        <description>댓글을 오름차순 또는 내림차순으로 정렬합니다.</description>
+        <type>SELECT</type>
+        <option>
+          <![CDATA[
+            [
+              {"name":"asc_order", "label":"오름차순", "value":"asc_order"},
+              {"name":"desc_order", "label":"내림차순", "value":"desc_order"}
+            ]
+          ]]>
+        </option>
+        <default><![CDATA[asc_order]]></default>
       </variable>
     </variablegroup>
 

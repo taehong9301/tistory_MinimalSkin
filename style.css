@@ -48,6 +48,9 @@ ul, ol {
 .n_b_btn:hover {
   cursor: pointer;
 }
+.n_b_btn:focus {
+  outline: none;
+}
 .b_btn {
   padding: 10px;
   margin: 5px;
@@ -452,6 +455,11 @@ main .article_container .article_wrapper {
   display: flex;
   align-items: center;
 }
+.comment_write_wrapper .comment_secret_checkbox {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
 .comment_write_wrapper .comment_textarea_form {
   flex: 1;
   display: flex;
@@ -473,6 +481,52 @@ main .article_container .article_wrapper {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+}
+
+.comment_list_wrapper .comment_item_header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+.comment_list_wrapper .comment_item_header img {
+  width: 32px;
+  height: 32px;
+  border-radius: 100%;
+}
+.comment_list_wrapper .comment_item_header img,
+.comment_list_wrapper .comment_item_header .name {
+  margin-right: 10px;
+}
+.comment_list_wrapper .comment_item_header .date {
+  font-size: 0.8em;
+  flex: 1;
+}
+.comment_list_wrapper .comment_item_desc {
+  padding: 10px 0 0 10px;
+  margin: 0 0 0 5px;
+}
+.comment_list_wrapper .comment_item_footer {
+
+}
+.comment_list_wrapper .comment_reply_item_wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.comment_list_wrapper li {
+  padding: 15px;
+}
+.comment_list_wrapper ol > li {
+  border-top: 1px solid #e9ecef;
+}
+.comment_list_wrapper ol {
+  display: flex;
+}
+.asc_order .comment_list_wrapper ol {
+  flex-direction: column;
+}
+.desc_order .comment_list_wrapper ol {
+  flex-direction: column-reverse;
 }
 
 /*************** Main - Article - permalink article - contents */
