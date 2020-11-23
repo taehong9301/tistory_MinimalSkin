@@ -48,6 +48,8 @@ ul, ol {
 .n_b_btn:hover {
   cursor: pointer;
 }
+#scroll_to_top:focus,
+.b_btn:focus,
 .n_b_btn:focus {
   outline: none;
 }
@@ -67,6 +69,22 @@ ul, ol {
   color: #adb5bd;
   font-size: 0.8em;
   font-weight: lighter;
+}
+#scroll_to_top {
+  display: none;
+  position: fixed;
+  bottom: 40px;
+  right: 80px;
+  padding: 10px;
+  background-color: #ffffff;
+  border: 1px solid #ced4da;
+  border-radius: 100%;
+  width: 48px;
+  height: 48px;
+  box-shadow: 5px 5px 5px #adb5bd;
+}
+#scroll_to_top:hover {
+  border: 1px solid #495057;
 }
 
 /*************** Header */
@@ -463,19 +481,27 @@ main .article_container .article_wrapper {
 .comment_write_wrapper .comment_textarea_form {
   flex: 1;
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
 }
-.comment_write_wrapper .comment_textarea_form svg {
-  margin-top: 5px;
-}
 .comment_write_wrapper .comment_textarea_form textarea {
-  flex: 1;
+  width: calc(100% - 30px);
   height: 50px;
   transition: height 0.1s ease-in-out;
 }
 .comment_write_wrapper .comment_textarea_form textarea:focus {
   height: 100px;
+}
+#tt_captChaBottom .wrap_box_border {
+  position: static !important;
+  height: 5px !important;
+}
+#tt_captChaBottom .inner_captcha_box {
+  position: static !important;
+}
+#tt_captChaBottom .inner_captcha_box img {
+  width: auto;
 }
 .comment_write_wrapper .comment_btn_form {
   display: flex;
@@ -527,6 +553,14 @@ main .article_container .article_wrapper {
 }
 .desc_order .comment_list_wrapper ol {
   flex-direction: column-reverse;
+}
+
+/*************** Main - Footer */
+footer {
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*************** Main - Article - permalink article - contents */
