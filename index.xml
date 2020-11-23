@@ -77,7 +77,7 @@
     <!-- WEB Master -->
     <variablegroup name="WEB Master 등록">
       <variable>
-        <name>googleWebMaster</name>
+        <name>google_web_master</name>
         <label><![CDATA[GOOGLE 웹 마스터]]></label>
         <description>Google의 웹 마스터를 등록 할 수 있습니다.</description>
         <type>STRING</type>
@@ -85,7 +85,7 @@
         <default></default>
       </variable>
       <variable>
-        <name>naverWebMaster</name>
+        <name>naver_web_master</name>
         <label><![CDATA[NAVER 웹 마스터]]></label>
         <description>Naver의 웹 마스터를 등록 할 수 있습니다.</description>
         <type>STRING</type>
@@ -93,7 +93,7 @@
         <default></default>
       </variable>
       <variable>
-        <name>bingWebMaster</name>
+        <name>bing_web_master</name>
         <label><![CDATA[BING 웹 마스터]]></label>
         <description>Microsoft의 Bing 웹 마스터를 등록 할 수 있습니다.</description>
         <type>STRING</type>
@@ -258,21 +258,22 @@
       </variable>
     </variablegroup>
 
+    <!-- 테마 설정 -->
     <variablegroup name="테마 설정">
       <variable>
         <name>theme</name>
-        <label>테마 선택</label>
-        <description></description>
+        <label><![CDATA[테마 선택]]></label>
+        <description>테마를 선택할 수 있습니다.</description>
         <type>SELECT</type>
         <option>
-					<![CDATA[
+          <![CDATA[
             [
-              {"name":"light", "label":"밝은 테마 (기본)", "value":"lightTheme"},
-              {"name":"dark", "label":"어두운 테마", "value":"darkTheme"}
+              {"name":"light_theme", "label":"밝은 테마 (기본)", "value":"light_theme"},
+              {"name":"dark_theme", "label":"어두운 테마", "value":"dark_theme"}
             ]
           ]]>
         </option>
-        <default>lightTheme</default>
+        <default><![CDATA[light_theme]]></default>
       </variable>
     </variablegroup>
 

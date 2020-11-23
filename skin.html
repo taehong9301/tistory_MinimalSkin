@@ -37,12 +37,15 @@
     <!-- WEB Master - Google -->
     <meta
       name="google-site-verification"
-      content="[##_var_googleWebMaster_##]"
+      content="[##_var_google_web_master_##]"
     />
     <!-- WEB Master - NAVER -->
-    <meta name="naver-site-verification" content="[##_var_naverWebMaster_##]" />
+    <meta
+      name="naver-site-verification"
+      content="[##_var_naver_web_master_##]"
+    />
     <!-- WEB Master - BING -->
-    <meta name="msvalidate.01" content="[##_var_bingWebMaster_##]" />
+    <meta name="msvalidate.01" content="[##_var_bing_web_master_##]" />
 
     <style>
       [##_var_font_style_##] body {
@@ -53,11 +56,13 @@
         color: [##_var_primary_color_##];
       }
 
+      body.dark_theme a:hover,
       a:hover,
       .n_b_btn:hover {
         color: [##_var_secondary_color_##];
       }
 
+      body.dark_theme header nav ul li a:hover,
       header nav ul li a:hover {
         border-bottom: 2px solid [##_var_secondary_color_##];
       }
@@ -614,14 +619,14 @@
                         <s_cover_item>
                           <s_cover_item_article_info>
                             <article class="default_article_wrapper">
-                              <div class="default_article_img">
-                                <s_cover_item_thumbnail>
+                              <s_cover_item_thumbnail>
+                                <div class="default_article_img">
                                   <img
                                     src="[##_cover_item_thumbnail_##]"
                                     onclick="window.location='[##_cover_item_url_##]'"
                                   />
-                                </s_cover_item_thumbnail>
-                              </div>
+                                </div>
+                              </s_cover_item_thumbnail>
                               <div class="default_article_desc">
                                 <a
                                   href="[##_cover_item_url_##]"
@@ -986,6 +991,56 @@
                       </article>
                     </s_permalink_article_rep>
                   </s_article_rep>
+
+                  <!-- 페이징 -->
+                  <s_paging>
+                    <div class="paging">
+                      <a [##_prev_page_##] class="[##_no_more_prev_##]"
+                        ><svg
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 16 16"
+                          class="bi bi-arrow-left-circle"
+                          fill="currentColor"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                          />
+                          <path
+                            fill-rule="evenodd"
+                            d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"
+                          />
+                        </svg>
+                      </a>
+                      <span class="numbox">
+                        <s_paging_rep>
+                          <a [##_paging_rep_link_##] class="num"
+                            >[##_paging_rep_link_num_##]</a
+                          >
+                        </s_paging_rep>
+                      </span>
+                      <a [##_next_page_##] class="[##_no_more_next_##]"
+                        ><svg
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 16 16"
+                          class="bi bi-arrow-right-circle"
+                          fill="currentColor"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                          />
+                          <path
+                            fill-rule="evenodd"
+                            d="M4 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5A.5.5 0 0 0 4 8z"
+                          /></svg
+                      ></a>
+                    </div>
+                  </s_paging>
                 </div>
               </div>
 
@@ -996,8 +1051,16 @@
         </main>
 
         <!-- Footer -->
-        <footer role="footer"></footer>
+        <footer role="footer">
+          Copyright&nbsp;©&nbsp;<a href="[##_blog_link_##]">[##_blogger_##]</a
+          >&nbsp;All&nbsp;rights&nbsp;reserved.&nbsp;/&nbsp;Designed&nbsp;by&nbsp;<a
+            href="https://memostack.tistory.com/"
+            target="_blank"
+            >Taehong&nbsp;Kim</a
+          >.
+        </footer>
 
+        <!-- Scroll To Top Button -->
         <button id="scroll_to_top" onclick="scrollToTop()">
           <svg
             width="1em"
@@ -1013,7 +1076,25 @@
             />
           </svg>
         </button>
+
         <script type="text/javascript">
+          // 개발자 도구 방지
+          var map = {
+            18: false,
+            73: false,
+            91: false,
+            123: false,
+          };
+          document.onkeydown = function (event) {
+            map[event.keyCode] = true;
+            if ((map[18] && map[73] && map[91]) || map[123]) {
+              event.preventDefault();
+            }
+          };
+          document.onkeyup = function (event) {
+            map[event.keyCode] = false;
+          };
+
           document.onkeyup = function (event) {
             let e;
             // 단축키: 검색

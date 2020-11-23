@@ -27,9 +27,8 @@ ul,
 ol {
   list-style: none;
 }
-.container {
-  min-height: 100vh;
-}
+
+/* Common */
 .custom_input {
   padding: 9px;
   margin: 5px;
@@ -87,6 +86,92 @@ ol {
 }
 #scroll_to_top:hover {
   border: 1px solid #495057;
+  cursor: pointer;
+}
+.paging {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.paging a {
+  padding: 10px;
+}
+.paging .numbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.paging .numbox a {
+  padding: 5px;
+}
+
+/* Theme */
+body.dark_theme {
+  background-color: #495057;
+  color: #ffffff;
+}
+body.dark_theme header nav a {
+  color: #ffffff;
+}
+body.dark_theme .custom_input {
+  background-color: #495057;
+  color: #ffffff;
+}
+body.dark_theme .custom_input:focus {
+  border: 1px solid #ffffff;
+}
+body.dark_theme .n_b_btn {
+  background-color: #495057;
+  color: #ffffff;
+}
+body.dark_theme .b_btn {
+  border: 1px solid #adb5bd;
+  background-color: #495057;
+  color: #ffffff;
+}
+body.dark_theme .b_btn:hover {
+  border: 1px solid #ffffff;
+}
+body.dark_theme .tt_article_useless_p_margin p > code,
+body.dark_theme .tt_article_useless_p_margin div > code,
+body.dark_theme .tt_article_useless_p_margin li > code,
+body.dark_theme .tt_article_useless_p_margin span > code {
+  background-color: #adb5bd;
+  border: 1px solid #ced4da;
+  color: #495057;
+}
+body.dark_theme .tt_article_useless_p_margin span {
+  color: #ffffff !important;
+}
+body.dark_theme a.link_tit,
+body.dark_theme a.link_item,
+body.dark_theme a.link_sub_item {
+  display: block;
+  color: #ffffff;
+  padding: 5px 0;
+  transition: color 0.2s ease-in-out;
+}
+body.dark_theme #scroll_to_top {
+  color: #ced4da;
+  background-color: #495057;
+  border: 1px solid #ced4da;
+  box-shadow: 3px 3px 3px #868e96;
+}
+body.dark_theme
+  .default_article_container
+  .default_article_wrapper
+  .default_article_img {
+  background: #868e96;
+}
+
+body.dark_theme .article_container .article_wrapper .article_item,
+body.dark_theme .menu_container .menu_wrapper .menu_item {
+  border: 1px solid #868e96;
+}
+body.dark_theme .article_container .article_wrapper .article_item:hover,
+body.dark_theme .menu_container .menu_wrapper .menu_item:hover {
+  border: 1px solid #adb5bd;
 }
 
 /*************** Header */
