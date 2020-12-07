@@ -725,6 +725,30 @@ footer {
   font-weight: bold;
 }
 
+/* Scroll To Top Button */
+#scroll_to_top:focus {
+  outline: none;
+}
+#scroll_to_top {
+  display: none;
+  position: fixed;
+  bottom: 40px;
+  right: 80px;
+  padding: 10px;
+  color: #ffffff;
+  background-color: #212529;
+  border: 1px solid #212529;
+  border-radius: 100%;
+  width: 48px;
+  height: 48px;
+  transition: all 0.2s ease-in-out;
+}
+#scroll_to_top:hover {
+  background-color: #ffffff;
+  cursor: pointer;
+  color: #212529;
+}
+
 @media screen and (max-width: 1300px) {
   /* Container - main */
   main {
