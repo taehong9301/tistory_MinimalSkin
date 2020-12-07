@@ -87,6 +87,13 @@
       footer a {
         color: [##_var_primary_color_##];
       }
+
+      /* Progress Bar */
+      #progress_fill {
+        width: 0%;
+        height: 100%;
+        background: [##_var_primary_color_##];
+      }
     </style>
 
     <!-- Title -->
@@ -96,6 +103,9 @@
   <body>
     <s_t3>
       <!-- Progress bar -->
+      <div id="progress_bar">
+        <div id="progress_fill"></div>
+      </div>
 
       <!-- Header -->
       <header role="header" class="header">
@@ -995,13 +1005,22 @@
       };
 
       // 스크롤
+      const progress_fill = document.querySelector("#progress_fill");
+      const pageHeight = document.querySelector("html").scrollHeight;
       document.onscroll = function () {
+        // 스크롤 버튼
         const e = document.querySelector("#scroll_to_top");
         if (window.scrollY >= window.screen.height) {
           e.style = "display: block";
         } else {
           e.style = "display: none";
         }
+
+        // 프로그레스 바
+        let scrollBottom =
+          document.querySelector("html").scrollTop + window.innerHeight;
+        let progress = (scrollBottom / pageHeight) * 100;
+        progress_fill.style.width = progress + "%";
       };
 
       function scrollToTop() {

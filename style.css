@@ -168,7 +168,7 @@ ul {
 header {
   height: 80px;
   box-sizing: border-box;
-  padding: 10px 80px;
+  padding: 15px 80px 10px 80px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -747,6 +747,15 @@ footer {
   background-color: #ffffff;
   cursor: pointer;
   color: #212529;
+}
+
+/* Progress Bar */
+#progress_bar {
+  position: fixed;
+  width: 100%;
+  background: inherit;
+  height: 5px;
+  z-index: 99;
 }
 
 @media screen and (max-width: 1300px) {
