@@ -995,4 +995,9 @@ footer {
   .comment_item_control a {
     padding: 5px 5px;
   }
+
+  /* 페이징 */
+  .paging {
+    flex-direction: column;
+  }
 }
