@@ -164,6 +164,43 @@ ul {
   list-style: none;
 }
 
+/* Dark Theme */
+.dark_theme,
+.dark_theme .container,
+.dark_theme footer,
+.dark_theme main {
+  background: #212529;
+  color: #ffffff;
+}
+.dark_theme a {
+  color: #ffffff;
+  border-bottom: 1px solid #495057;
+}
+.dark_theme .header_tit a {
+  color: #ffffff;
+}
+.dark_theme .tt_article_useless_p_margin p,
+.dark_theme .tt_article_useless_p_margin span,
+.dark_theme .tt_article_useless_p_margin li p,
+.dark_theme .tt_article_useless_p_margin li span,
+.dark_theme svg {
+  color: #ffffff !important;
+}
+.dark_theme .search_wrapper input,
+.dark_theme .comment_write_textarea textarea {
+  background: #212529;
+  color: #ffffff;
+}
+.dark_theme .tt_article_useless_p_margin figcaption {
+  color: #ced4da;
+}
+.dark_theme .tt_article_useless_p_margin p > code,
+.dark_theme .tt_article_useless_p_margin div > code,
+.dark_theme .tt_article_useless_p_margin li > code,
+.dark_theme .tt_article_useless_p_margin span > code {
+  background: #495057;
+}
+
 /* Header */
 header {
   height: 80px;
@@ -172,7 +209,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #e9ecef;
+  border-bottom: 1px solid #e9ecef;
   font-weight: bold;
 }
 .header_tit {
@@ -521,7 +558,6 @@ main .post_container {
   display: inline-block;
   padding: 0 5px;
   line-height: 1.5em;
-  font-weight: bold;
 }
 .tt_article_useless_p_margin h2,
 .tt_article_useless_p_margin h3,
@@ -631,14 +667,14 @@ main .post_container {
 }
 
 /* 댓글 목록 */
-.comment_default_order ol {
-  flex-direction: column;
-}
-.comment_reverse_order ol {
-  flex-direction: column-reverse;
-}
 .comment_list ol {
   display: flex;
+}
+.comment_default_order .comment_list ol {
+  flex-direction: column;
+}
+.comment_reverse_order .comment_list ol {
+  flex-direction: column-reverse;
 }
 .comment_list ol > li {
   border-bottom: 1px solid #e9ecef;
