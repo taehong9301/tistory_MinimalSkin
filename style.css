@@ -746,6 +746,32 @@ main .post_container {
 }
 .comment_desc {
   flex: 1;
+  line-height: 1.8em;
+}
+
+/* 태그 클라우드 */
+.taglog h3 {
+  display: flex;
+  align-items: center;
+}
+.taglog h3 span {
+  font-weight: bold;
+}
+.taglog h3 svg {
+  margin-right: 10px;
+}
+.taglog ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.taglog ul li {
+  padding: 10px;
+  margin: 5px;
+}
+.taglog ul li a {
+  display: block;
 }
 
 /* 페이징 */
