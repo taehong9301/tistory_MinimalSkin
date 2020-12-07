@@ -103,6 +103,7 @@
         <default></default>
       </variable>
     </variablegroup>
+
     <!-- Color -->
     <variablegroup name="색상 설정">
       <variable>
@@ -114,22 +115,11 @@
         <type>COLOR</type>
         <option></option>
         <default>
-          <![CDATA[#20c997]]>
-        </default>
-      </variable>
-      <variable>
-        <name>secondary_color</name>
-        <label>
-          <![CDATA[보조 색상 Secondary]]>
-        </label>
-        <description>블로그 하이라이트 색상을 선택할 수 있습니다.</description>
-        <type>COLOR</type>
-        <option></option>
-        <default>
-          <![CDATA[#38d9a9]]>
+          <![CDATA[#74c0fc]]>
         </default>
       </variable>
     </variablegroup>
+
     <!-- Logo -->
     <variablegroup name="로고 설정">
       <variable>

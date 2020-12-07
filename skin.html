@@ -82,6 +82,11 @@
         font-weight: bold;
         color: [##_var_primary_color_##];
       }
+
+      /* footer */
+      footer a {
+        color: [##_var_primary_color_##];
+      }
     </style>
 
     <!-- Title -->
@@ -426,7 +431,7 @@
                       </s_rp_input_form>
 
                       <!-- 댓글 폼 -->
-                      <div class="comment_list">
+                      <div class="comment_list comment_reverse_order">
                         <s_rp_container>
                           <ol>
                             <s_rp_rep>
@@ -553,6 +558,186 @@
               <!-- //퍼머링크 페이지-->
             </s_article_rep>
 
+            <!-- 방명록 댓글 -->
+            <s_guest>
+              <div class="comment_wrapper">
+                <!-- 방명록 댓글 쓰기 -->
+                <div class="comment_write">
+                  <h3 class="comment_write_tit">
+                    <svg
+                      width="0.9em"
+                      height="0.9em"
+                      viewBox="0 0 16 16"
+                      class="bi bi-pencil"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5L13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175l-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"
+                      />
+                    </svg>
+                    <span>GUEST COMMENT WRITE</span>
+                  </h3>
+                  <s_guest_input_form>
+                    <div class="comment_write_form">
+                      <s_guest_member>
+                        <s_guest_form>
+                          <div class="comment_user_info">
+                            <input
+                              type="text"
+                              name="[##_guest_input_name_##]"
+                              value="[##_guest_name_##]"
+                              placeholder="username"
+                            />
+                            <input
+                              type="password"
+                              maxlength="8"
+                              name="[##_guest_input_password_##]"
+                              value="[##_guest_password_##]"
+                              placeholder="password"
+                            />
+                            <input
+                              type="text"
+                              class="homepage"
+                              name="[##_guest_input_homepage_##]"
+                              value="[##_guest_homepage_##]"
+                              placeholder="homepage"
+                            />
+                          </div>
+                        </s_guest_form>
+                        <p class="secret_wrapper">
+                          <input
+                            type="checkbox"
+                            name="[##_rp_input_is_secret_##]"
+                            class="checkbox"
+                          />
+                          <svg
+                            width="0.9em"
+                            height="0.9em"
+                            viewBox="0 0 16 16"
+                            class="bi bi-lock"
+                            fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M11.5 8h-7a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1zm-7-1a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-7zm0-3a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z"
+                            />
+                          </svg>
+                        </p>
+                      </s_guest_member>
+                      <p class="comment_write_textarea">
+                        <textarea name="[##_guest_textarea_body_##]"></textarea>
+                      </p>
+                      <button
+                        type="submit"
+                        onclick="[##_guest_onclick_submit_##]"
+                      >
+                        댓글 달기
+                      </button>
+                    </div>
+                  </s_guest_input_form>
+
+                  <!-- 방명록 댓글 폼 -->
+                  <div class="comment_list comment_default_order">
+                    <s_guest_container>
+                      <ol>
+                        <s_guest_rep>
+                          <li id="[##_guest_rep_id_##]">
+                            <div
+                              class="[##_guest_rep_class_##] comment_item_wrapper"
+                            >
+                              <div class="comment_item_header">
+                                <div class="comment_item_desc">
+                                  <span class="name">
+                                    [##_guest_rep_name_##]
+                                  </span>
+                                  <span class="date">
+                                    [##_guest_rep_date_##]
+                                  </span>
+                                </div>
+                                <div class="comment_item_control">
+                                  <a
+                                    href="#"
+                                    onclick="[##_guest_rep_onclick_delete_##]"
+                                    class="modify"
+                                  >
+                                    수정/삭제
+                                  </a>
+                                  <a
+                                    href="#"
+                                    onclick="[##_guest_rep_onclick_reply_##]"
+                                    class="write"
+                                  >
+                                    댓글쓰기
+                                  </a>
+                                </div>
+                              </div>
+                              <p class="comment_desc">[##_guest_rep_desc_##]</p>
+                            </div>
+                            <!-- 방명록 대댓글 -->
+                            <s_guest_reply_container>
+                              <ul>
+                                <s_guest_reply_rep>
+                                  <li id="[##_guest_rep_id_##]">
+                                    <svg
+                                      width="1em"
+                                      height="1em"
+                                      viewBox="0 0 16 16"
+                                      class="bi bi-reply"
+                                      fill="currentColor"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        fill-rule="evenodd"
+                                        d="M9.502 5.013a.144.144 0 0 0-.202.134V6.3a.5.5 0 0 1-.5.5c-.667 0-2.013.005-3.3.822-.984.624-1.99 1.76-2.595 3.876C3.925 10.515 5.09 9.982 6.11 9.7a8.741 8.741 0 0 1 1.921-.306 7.403 7.403 0 0 1 .798.008h.013l.005.001h.001L8.8 9.9l.05-.498a.5.5 0 0 1 .45.498v1.153c0 .108.11.176.202.134l3.984-2.933a.494.494 0 0 1 .042-.028.147.147 0 0 0 0-.252.494.494 0 0 1-.042-.028L9.502 5.013zM8.3 10.386a7.745 7.745 0 0 0-1.923.277c-1.326.368-2.896 1.201-3.94 3.08a.5.5 0 0 1-.933-.305c.464-3.71 1.886-5.662 3.46-6.66 1.245-.79 2.527-.942 3.336-.971v-.66a1.144 1.144 0 0 1 1.767-.96l3.994 2.94a1.147 1.147 0 0 1 0 1.946l-3.994 2.94a1.144 1.144 0 0 1-1.767-.96v-.667z"
+                                      />
+                                    </svg>
+                                    <div
+                                      class="[##_guest_rep_class_##] comment_item_wrapper"
+                                    >
+                                      <div class="comment_item_header">
+                                        <div class="comment_item_desc">
+                                          <span class="name">
+                                            [##_guest_rep_name_##]
+                                          </span>
+                                          <span class="date">
+                                            [##_guest_rep_date_##]
+                                          </span>
+                                        </div>
+                                        <div class="comment_item_control">
+                                          <a
+                                            href="#"
+                                            onclick="[##_guest_rep_onclick_delete_##]"
+                                            class="modify"
+                                            >&nbsp;
+                                            <span>수정/삭제</span>
+                                          </a>
+                                        </div>
+                                      </div>
+                                      <p class="comment_desc">
+                                        [##_guest_rep_desc_##]
+                                      </p>
+                                    </div>
+                                  </li>
+                                </s_guest_reply_rep>
+                              </ul>
+                            </s_guest_reply_container>
+                            <!-- //방명록 대댓글 -->
+                          </li>
+                        </s_guest_rep>
+                      </ol>
+                    </s_guest_container>
+                  </div>
+                  <!-- //방명록 댓글 폼 -->
+                </div>
+                <!-- //방명록 댓글 쓰기 -->
+                <div class="commentList"></div>
+              </div>
+            </s_guest>
+            <!-- //방명록 댓글 -->
+
             <!-- 페이징 -->
             <s_paging>
               <div class="paging">
@@ -579,10 +764,9 @@
 
       <!-- Footer -->
       <footer role="footer">
-        <p>Copyright <a href="[##_blogger_##]">[##_title_##]</a>.</p>
         <p>
-          Designed by
-          <a href="" target="_blank">MemoStack(taehong.kim)</a>.
+          Copyright <a href="[##_blogger_##]">[##_title_##]</a> / Designed by
+          <a href="" target="_blank">MemoStack</a>
         </p>
       </footer>
       <!-- //Footer -->

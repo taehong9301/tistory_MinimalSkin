@@ -173,6 +173,7 @@ header {
   justify-content: center;
   align-items: center;
   border: 1px solid #e9ecef;
+  font-weight: bold;
 }
 .header_tit {
   font-size: 1.3em;
@@ -308,6 +309,7 @@ div.menu_container .menu_item h3 svg {
 /* Menu Container - Category */
 .tt_category a {
   border: none;
+  font-size: 1.1em;
 }
 .tt_category a.link_item,
 .tt_category a.link_tit,
@@ -315,6 +317,7 @@ div.menu_container .menu_item h3 svg {
   display: block;
   width: 100%;
   overflow: hidden;
+  padding: 5px 0;
 }
 .tt_category .c_cnt {
   font-size: 0.9em;
@@ -448,7 +451,7 @@ main .post_container {
 /* Container - Article - 본문 */
 .article_content .tt_article_useless_p_margin {
   line-height: 2em;
-  font-size: 1.1em;
+  font-size: 1.2em;
 }
 .tt_article_useless_p_margin figure.imageblock {
   margin-top: 10px;
@@ -494,7 +497,8 @@ main .post_container {
   font-weight: bold;
 }
 .tt_article_useless_p_margin h2 {
-  padding-bottom: 5px;
+  padding-bottom: 10px;
+  margin-bottom: 5px;
   border-bottom: 1px solid #ced4da;
 }
 .tt_article_useless_p_margin .another_category {
@@ -595,9 +599,14 @@ main .post_container {
 }
 
 /* 댓글 목록 */
+.comment_default_order ol {
+  flex-direction: column;
+}
+.comment_reverse_order ol {
+  flex-direction: column-reverse;
+}
 .comment_list ol {
   display: flex;
-  flex-direction: column-reverse;
 }
 .comment_list ol > li {
   border-bottom: 1px solid #e9ecef;
@@ -625,12 +634,14 @@ main .post_container {
 .comment_item_header {
   display: flex;
   margin-bottom: 20px;
+  box-sizing: border-box;
 }
 .comment_item_img {
   width: 60px;
   height: 60px;
   border-radius: 100%;
   overflow: hidden;
+  margin-right: 20px;
 }
 .comment_item_img img {
   width: 100%;
@@ -642,7 +653,6 @@ main .post_container {
   justify-content: center;
   align-items: flex-start;
   box-sizing: border-box;
-  padding: 0 20px;
 }
 .comment_item_desc .name {
   flex: 1;
@@ -664,6 +674,7 @@ main .post_container {
   border: none;
   box-sizing: border-box;
   padding: 5px 10px;
+  font-weight: bold;
 }
 .comment_desc {
   flex: 1;
@@ -705,12 +716,13 @@ main .post_container {
 footer {
   box-sizing: border-box;
   height: 100px;
-  line-height: 40px;
+  line-height: 80px;
   padding: 10px 40px;
-  font-weight: bold;
   border-top: 1px solid #e9ecef;
   color: #212529;
   background-color: #ffffff;
+  font-size: 0.9em;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 1300px) {
