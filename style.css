@@ -246,7 +246,7 @@ header nav ul li a {
   box-sizing: border-box;
   padding: 5px;
 }
-.search_wrapper:hover > .seach_txt {
+.search_wrapper:hover > .search_txt {
   width: 200px;
   padding: 5px;
 }
@@ -258,14 +258,14 @@ header nav ul li a {
 .search_btn:hover {
   cursor: pointer;
 }
-.seach_txt {
+.search_txt {
   width: 0px;
   border: none;
   box-sizing: border-box;
   padding: 5px 0px;
   transition: all 0.2s ease-in-out;
 }
-.seach_txt:focus {
+.search_txt:focus {
   outline: none;
 }
 
@@ -273,7 +273,7 @@ header nav ul li a {
 div.banner_container {
   height: 400px;
   background-color: #e9ecef;
-  background-image: url("https://source.unsplash.com/featured/?interior-designer");
+  background-image: url("https://source.unsplash.com/1200x400/?interior-designer");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -349,7 +349,7 @@ div.container_reverse_order {
 }
 
 /* Container - Menu Container */
-div.menu_container {
+aside.menu_container {
   width: 340px;
   padding: 10px 0;
   background: inherit;
@@ -357,13 +357,13 @@ div.menu_container {
   padding: 30px 15px;
 }
 
-div.menu_container .menu_item {
+aside.menu_container .menu_item {
   padding-bottom: 20px;
   margin-bottom: 20px;
   border-bottom: 1px solid #ced4da;
 }
 
-div.menu_container .menu_item h3 {
+aside.menu_container .menu_item h3 {
   font-size: 1.1em;
   font-weight: bold;
   margin-bottom: 10px;
@@ -371,7 +371,7 @@ div.menu_container .menu_item h3 {
   justify-content: flex-start;
   align-items: center;
 }
-div.menu_container .menu_item h3 svg {
+aside.menu_container .menu_item h3 svg {
   margin-right: 5px;
 }
 
@@ -444,9 +444,10 @@ main .post_container {
   width: 100%;
   display: flex;
   box-sizing: border-box;
+  align-items: center;
   padding: 20px 40px;
   border-bottom: 1px solid #e9ecef;
-  height: 240px;
+  height: 280px;
 }
 .index_content:last-child {
   border: none;
@@ -455,8 +456,9 @@ main .post_container {
   flex: 1;
   box-sizing: border-box;
   padding: 0 20px;
+  width: calc(100% - 240px);
 }
-.index_desc_wrapper a {
+.index_desc_wrapper a.index_link_post {
   border: none;
 }
 .index_tit_post {
@@ -470,6 +472,9 @@ main .post_container {
   font-size: 0.9em;
   padding-bottom: 10px;
   margin-bottom: 10px;
+}
+.index_date svg {
+  margin-left: 3px;
 }
 .index_txt_post {
   width: 100%;
@@ -493,6 +498,10 @@ main .post_container {
   height: 100%;
   width: 100%;
   object-fit: cover;
+}
+.index_img_wrapper:hover {
+  opacity: 0.8;
+  cursor: pointer;
 }
 
 /* Container - Article */
@@ -521,6 +530,7 @@ main .post_container {
 .article_content .tt_article_useless_p_margin {
   line-height: 2em;
   font-size: 1.2em;
+  word-break: break-all;
 }
 .tt_article_useless_p_margin figure.imageblock {
   margin-top: 10px;
@@ -574,6 +584,14 @@ main .post_container {
 }
 .tt_article_useless_p_margin .another_category table tr th a {
   font-size: 1.2em;
+}
+.tt_article_useless_p_margin blockquote:before {
+  content: "🌟 NOTE";
+  font-weight: bold;
+  font-style: italic;
+  display: block;
+  margin-bottom: 5px;
+  top: 0;
 }
 
 /* 댓글 쓰기 */
@@ -853,14 +871,14 @@ footer {
 }
 
 @media screen and (max-width: 1300px) {
-  /* Container - main */
-  main {
-    width: 720px;
-  }
-
   /* Header */
   header {
     padding: 10px 40px;
+  }
+
+  /* Container - main */
+  main {
+    width: 720px;
   }
 }
 
@@ -871,7 +889,7 @@ footer {
   }
 
   /* Container - Menu Container */
-  div.menu_container {
+  aside.menu_container {
     width: 100%;
     padding: 30px 40px;
   }
@@ -891,8 +909,13 @@ footer {
 }
 
 @media screen and (max-width: 960px) {
+  /* Banner */
+  div.banner_container {
+    background-image: url("https://source.unsplash.com/960x400/?interior-designer");
+  }
+
   /* Container - Menu Container */
-  div.menu_container {
+  aside.menu_container {
     padding: 30px 40px;
   }
 
@@ -903,14 +926,14 @@ footer {
 
   /* Container - Index Page */
   .index_content {
-    height: 190px;
+    height: 220px;
   }
   .index_img_wrapper {
     width: 150px;
     height: 150px;
   }
   .index_txt_post {
-    height: 60px;
+    height: 80px;
   }
 
   /* 댓글 목록 */
@@ -929,15 +952,18 @@ footer {
   header {
     padding: 10px 20px;
   }
-  .search_wrapper:hover > .seach_txt {
+  .search_wrapper:hover > .search_txt {
     width: 150px;
     padding: 0;
   }
-  .seach_txt {
+  .search_txt {
     width: 150px;
   }
 
-  /* banner */
+  /* Banner */
+  div.banner_container {
+    background-image: url("https://source.unsplash.com/720x400/?interior-designer");
+  }
   div.banner_container .banner_tit {
     font-size: 1.8em;
   }
@@ -946,7 +972,7 @@ footer {
   }
 
   /* Container - Menu Container */
-  div.menu_container {
+  aside.menu_container {
     padding: 30px 10px;
   }
 
@@ -968,7 +994,7 @@ footer {
     padding: 0;
   }
   .index_txt_post {
-    height: 100px;
+    height: 110px;
   }
   .index_img_wrapper {
     width: 100%;
@@ -978,7 +1004,7 @@ footer {
   }
 
   /* Container - Menu Container */
-  div.menu_container {
+  aside.menu_container {
     padding: 30px 20px;
   }
 
