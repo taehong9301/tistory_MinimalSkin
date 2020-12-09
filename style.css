@@ -246,7 +246,7 @@ header nav ul li a {
   box-sizing: border-box;
   padding: 5px;
 }
-.search_wrapper:hover > .seach_txt {
+.search_wrapper:hover > .search_txt {
   width: 200px;
   padding: 5px;
 }
@@ -258,14 +258,14 @@ header nav ul li a {
 .search_btn:hover {
   cursor: pointer;
 }
-.seach_txt {
+.search_txt {
   width: 0px;
   border: none;
   box-sizing: border-box;
   padding: 5px 0px;
   transition: all 0.2s ease-in-out;
 }
-.seach_txt:focus {
+.search_txt:focus {
   outline: none;
 }
 
@@ -273,7 +273,7 @@ header nav ul li a {
 div.banner_container {
   height: 400px;
   background-color: #e9ecef;
-  background-image: url("https://source.unsplash.com/featured/?interior-designer");
+  background-image: url("https://source.unsplash.com/1200x400/?interior-designer");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -891,6 +891,11 @@ footer {
 }
 
 @media screen and (max-width: 960px) {
+  /* Banner */
+  div.banner_container {
+    background-image: url("https://source.unsplash.com/960x400/?interior-designer");
+  }
+
   /* Container - Menu Container */
   div.menu_container {
     padding: 30px 40px;
@@ -929,15 +934,18 @@ footer {
   header {
     padding: 10px 20px;
   }
-  .search_wrapper:hover > .seach_txt {
+  .search_wrapper:hover > .search_txt {
     width: 150px;
     padding: 0;
   }
-  .seach_txt {
+  .search_txt {
     width: 150px;
   }
 
-  /* banner */
+  /* Banner */
+  div.banner_container {
+    background-image: url("https://source.unsplash.com/720x400/?interior-designer");
+  }
   div.banner_container .banner_tit {
     font-size: 1.8em;
   }
