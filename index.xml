@@ -123,7 +123,7 @@
           ]]>
         </option>
         <default>
-          <![CDATA[left_order]]>
+          <![CDATA[cafe24]]>
         </default>
       </variable>
     </variablegroup>
@@ -218,7 +218,7 @@
           ]]>
         </option>
         <default>
-          <![CDATA[left_order]]>
+          <![CDATA[default]]>
         </default>
       </variable>
     </variablegroup>
