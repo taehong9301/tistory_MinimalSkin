@@ -2,7 +2,7 @@
 <skin>
   <information>
     <name>MINIMAL SKIN</name>
-    <version>2.0.0.1</version>
+    <version>2.0.0.2</version>
     <description>
       <![CDATA[TISTORY 'MINIMAL SKIN']]>
     </description>
@@ -104,6 +104,30 @@
       </variable>
     </variablegroup>
 
+    <!-- Side Menu order -->
+    <variablegroup name="본문/댓글 폰트 변경">
+      <variable>
+        <name>font_style</name>
+        <label>
+          <![CDATA[본문/댓글 폰트 변경]]>
+        </label>
+        <description>본문과 댓글의 폰트를 변경 할 수 있습니다.</description>
+        <type>SELECT</type>
+        <option>
+          <![CDATA[
+            [
+              {"name":"cafe24", "label":"Cafe24", "value":"cafe24"},
+              {"name":"maruburi", "label":"Naver 마루부리", "value":"@font-face {font-family: 'MaruBuri-Regular'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff'); format('woff'); font-weight: normal; font-style: normal;} .article_content .tt_article_useless_p_margin, .comment_list { font-family: 'MaruBuri-Regular'; font-size: 0.9em;}"},
+              {"name":"nanum_barunpen", "label":"Naver 나눔바른 펜", "value":"@font-face {font-family: 'NanumBarunpen'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumBarunpen.woff') format('woff'); font-weight: normal; font-style: normal; } .article_content .tt_article_useless_p_margin, .comment_list {font-family: 'NanumBarunpen';}"}
+            ]
+          ]]>
+        </option>
+        <default>
+          <![CDATA[cafe24]]>
+        </default>
+      </variable>
+    </variablegroup>
+
     <!-- Color -->
     <variablegroup name="색상 설정">
       <variable>
@@ -194,7 +218,7 @@
           ]]>
         </option>
         <default>
-          <![CDATA[left_order]]>
+          <![CDATA[default]]>
         </default>
       </variable>
     </variablegroup>
@@ -217,7 +241,7 @@
           ]]>
         </option>
         <default>
-          <![CDATA[asc_order]]>
+          <![CDATA[default]]>
         </default>
       </variable>
     </variablegroup>
