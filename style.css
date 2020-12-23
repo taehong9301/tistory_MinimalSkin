@@ -274,7 +274,7 @@ header nav ul li a {
 div.banner_container {
   height: 400px;
   background-color: #e9ecef;
-  background-image: url("https://source.unsplash.com/1200x400/?interior-designer&interior&natural");
+  background-image: url("https://source.unsplash.com/1200x400/");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -912,7 +912,7 @@ footer {
 @media screen and (max-width: 960px) {
   /* Banner */
   div.banner_container {
-    background-image: url("https://source.unsplash.com/960x400/?interior-designer&interior&natural");
+    background-image: url("https://source.unsplash.com/960x400/");
   }
 
   /* Container - Menu Container */
@@ -963,7 +963,7 @@ footer {
 
   /* Banner */
   div.banner_container {
-    background-image: url("https://source.unsplash.com/720x400/?interior-designer&interior&natural");
+    background-image: url("https://source.unsplash.com/720x400/");
   }
   div.banner_container .banner_tit {
     font-size: 1.8em;
