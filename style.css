@@ -1,13 +1,5 @@
 @charset "utf-8";
 
-@font-face {
-  font-family: "Cafe24Oneprettynight";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Oneprettynight.woff")
-    format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -146,7 +138,6 @@ table {
 /* Font */
 html,
 body {
-  font-family: "Cafe24Oneprettynight";
   font-size: 18px;
   color: #212529;
   width: 100%;
@@ -212,6 +203,9 @@ header {
   align-items: center;
   border-bottom: 1px solid #e9ecef;
   font-weight: bold;
+}
+.mobile_menu_open_btn, .mobile_menu_close_btn {
+  display: none;
 }
 .header_tit {
   font-size: 1.3em;
@@ -351,6 +345,7 @@ div.container_reverse_order {
 
 /* Container - Menu Container */
 aside.menu_container {
+  display: block;
   width: 340px;
   padding: 10px 0;
   background: inherit;
@@ -910,14 +905,44 @@ footer {
 }
 
 @media screen and (max-width: 960px) {
-  /* Banner */
+  /* Header */
+  .mobile_menu_open_btn, .mobile_menu_close_btn {
+    display: block;
+    background: inherit;
+    border: none;
+  }
+  .mobile_menu_open_btn:hover, .mobile_menu_close_btn:hover {
+    cursor: pointer;
+  }
+  .mobile_menu_close_btn {
+    position: fixed;
+    top: 20px;
+    right: 15px;
+  }
+  .mobile_menu_open_btn svg, .mobile_menu_close_btn svg {
+    width: 1.8em;
+    height: 1.8em;
+  }
+
+    /* Banner */
   div.banner_container {
     background-image: url("https://source.unsplash.com/960x400/");
   }
 
   /* Container - Menu Container */
   aside.menu_container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
     padding: 30px 40px;
+    width: 100%;
+    box-sizing: border-box;
+    height: 100vh;
+    overflow: scroll;
+    -webkit-mask-image: -webkit-gradient(linear, left top, right top,
+    from(rgba(0,0,0,1)), to(rgba(255,255,255,0.9)));
   }
 
   /* Container - main */
@@ -952,10 +977,10 @@ footer {
   /* Header */
   header {
     padding: 10px 20px;
+    overflow: scroll;
   }
   .search_wrapper:hover > .search_txt {
     width: 150px;
-    padding: 0;
   }
   .search_txt {
     width: 150px;
@@ -967,6 +992,9 @@ footer {
   }
   div.banner_container .banner_tit {
     font-size: 1.8em;
+  }
+  div.banner_container .banner_desc {
+    line-height: 1.8em;
   }
   div.banner_container .banner_img_wrapper {
     display: none;
@@ -1024,7 +1052,7 @@ footer {
   }
 
   /* 페이징 */
-  .paging {
-    flex-direction: column;
+  .paging .numbox {
+    display: none;
   }
 }
