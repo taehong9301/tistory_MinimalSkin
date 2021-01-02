@@ -41,7 +41,7 @@
     <link rel="stylesheet" href="./style.css" />
     <style>
       [##_var_font_style_##]
-      
+
       /* Common */
       a:hover {
         border-bottom: 1px solid [##_var_primary_color_##];
@@ -101,7 +101,7 @@
         height: 100%;
         background: [##_var_primary_color_##];
       }
- 
+
       /* Article 본문 */
       .tt_article_useless_p_margin blockquote {
         margin: 0;
@@ -128,6 +128,12 @@
 
       <!-- Header -->
       <header role="header" class="header" id="header">
+        <button class="mobile_menu_open_btn" onclick="openMenu()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+          </svg>
+        </button>
+
         <s_if_var_show_logo>
           <h1 class="header_tit">
             <a href="[##_blog_link_##]">[##_title_##]</a>
@@ -189,7 +195,7 @@
                 [##_blogger_##] :: <a href="[##_blog_link_##]">[##_title_##]</a>
               </h1>
             </div>
-            <p>[##_desc_##]</p>
+            <p class="banner_desc">[##_desc_##]</p>
             <div>
               <a href="[##_guestbook_link_##]" class="banner_item">
                 <svg
@@ -220,6 +226,13 @@
       <div class="container container_[##_var_order_menu_##]_order">
         <!-- Menu Container -->
         <aside class="menu_container">
+          <!-- 햄버거 버튼 close 버튼 -->
+          <button class="mobile_menu_close_btn"  onclick="closeMenu()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+              <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+            </svg>
+          </button>
+
           <s_sidebar>
             <s_sidebar_element>
               <!-- 카테고리 -->
@@ -1140,6 +1153,21 @@
         if (t < 1) return (c / 2) * t * t + b;
         t--;
         return (-c / 2) * (t * (t - 2) - 1) + b;
+      };
+
+      const menuContainer = document.querySelector("aside.menu_container");
+      function openMenu() {
+        menuContainer.setAttribute("style", "display: block");
+      }
+      function closeMenu() {
+        menuContainer.setAttribute("style", "display: none");
+      }
+      window.onresize = function(event) {
+        if (window.innerWidth > 960) {
+          menuContainer.setAttribute("style", "display: block");
+        } else {
+          menuContainer.setAttribute("style", "display: none");
+        }
       };
     </script>
   </body>
