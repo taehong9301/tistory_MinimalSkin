@@ -2,7 +2,7 @@
 <skin>
   <information>
     <name>MINIMAL SKIN</name>
-    <version>2.0.1.0</version>
+    <version>2.0.2.1</version>
     <description>
       <![CDATA[TISTORY 'MINIMAL SKIN']]>
     </description>
@@ -70,40 +70,6 @@
   </cover>
   <!-- Variable -->
   <variables>
-    <!-- WEB Master -->
-    <variablegroup name="WEB Master 등록">
-      <variable>
-        <name>google_web_master</name>
-        <label>
-          <![CDATA[GOOGLE 웹 마스터]]>
-        </label>
-        <description>Google의 웹 마스터를 등록 할 수 있습니다.</description>
-        <type>STRING</type>
-        <option></option>
-        <default></default>
-      </variable>
-      <variable>
-        <name>naver_web_master</name>
-        <label>
-          <![CDATA[NAVER 웹 마스터]]>
-        </label>
-        <description>Naver의 웹 마스터를 등록 할 수 있습니다.</description>
-        <type>STRING</type>
-        <option></option>
-        <default></default>
-      </variable>
-      <variable>
-        <name>bing_web_master</name>
-        <label>
-          <![CDATA[BING 웹 마스터]]>
-        </label>
-        <description>Microsoft의 Bing 웹 마스터를 등록 할 수 있습니다.</description>
-        <type>STRING</type>
-        <option></option>
-        <default></default>
-      </variable>
-    </variablegroup>
-
     <!-- Side Menu order -->
     <variablegroup name="전체 폰트 변경">
       <variable>
@@ -116,16 +82,17 @@
         <option>
           <![CDATA[
             [
+              {"name":"spoqa", "label":"스포카 한 산스", "value":"@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css); html, html body { font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; }"},
               {"name":"gyeonggi_batang", "label":"경기천년바탕", "value":"@font-face {font-family: 'GyeonggiBatang'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GyeonggiBatang.woff') format('woff'); font-weight: normal; font-style: normal; } html, html body {font-family: 'GyeonggiBatang';}"},
               {"name":"nanum_barungothic", "label":"Naver 나눔바른고딕", "value":"@font-face { font-family: 'NanumBarunGothic'; font-style: normal; font-weight: 400; src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot'); src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');}@font-face { font-family: 'NanumBarunGothic'; font-style: normal; font-weight: 700; src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot'); src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.ttf') format('truetype')}@font-face { font-family: 'NanumBarunGothic'; font-style: normal; font-weight: 300; src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot'); src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.ttf') format('truetype');} html, html body { font-family: 'NanumBarunGothic', sans-serif;}"},
-              {"name":"maruburi", "label":"Naver 마루부리", "value":"@font-face {font-family: 'MaruBuri-Regular'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff'); format('woff'); font-weight: normal; font-style: normal;} html, html body { font-family: 'MaruBuri-Regular'; font-size: 0.9em;}"},
+              {"name":"maruburi", "label":"Naver 마루부리", "value":"@font-face {font-family: 'MaruBuri-Regular'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff'); format('woff'); font-weight: normal; font-style: normal;} html, html body { font-family: 'MaruBuri-Regular'; }"},
               {"name":"nanum_barunpen", "label":"Naver 나눔바른 펜", "value":"@font-face {font-family: 'NanumBarunpen'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumBarunpen.woff') format('woff'); font-weight: normal; font-style: normal; } html, html body {font-family: 'NanumBarunpen';}"},
               {"name":"cafe24", "label":"Cafe24", "value":"@font-face { font-family: 'Cafe24Oneprettynight'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Oneprettynight.woff') format('woff'); font-weight: normal; font-style: normal; } html, html body {font-family: 'Cafe24Oneprettynight';}"}
             ]
           ]]>
         </option>
         <default>
-          <![CDATA[@font-face {font-family: 'GyeonggiBatang'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GyeonggiBatang.woff') format('woff'); font-weight: normal; font-style: normal; } html, html body {font-family: 'GyeonggiBatang';}]]>
+          <![CDATA[@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css); html, html body { font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; }]]>
         </default>
       </variable>
     </variablegroup>
@@ -162,6 +129,7 @@
 
     <!-- Banner -->
     <variablegroup name="배너 설정">
+      <!-- 배너 보이기/숨기기 -->
       <variable>
         <name>show_banner</name>
         <label>
@@ -169,8 +137,24 @@
         </label>
         <description>배너를 보이게 하거나 숨깁니다.</description>
         <type>BOOL</type>
-        <option></option>
+        <option />
         <default>true</default>
+      </variable>
+
+      <!-- 배너 이미지 변경 -->
+      <variable>
+        <name>banner_image</name>
+        <label>
+          <![CDATA[ 배너 이미지 ]]>
+        </label>
+        <type>IMAGE</type>
+        <option />
+        <default>
+          <![CDATA[ https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FsX4Ae%2FbtqVzRUA9Jw%2FHNikI0BteZAucIGmxKxgLK%2Fimg.jpg ]]>
+        </default>
+        <description>
+          <![CDATA[ 배너 이미지를 변경합니다. ]]>
+        </description>
       </variable>
     </variablegroup>
 
