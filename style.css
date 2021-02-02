@@ -204,7 +204,8 @@ header {
   border-bottom: 1px solid #e9ecef;
   font-weight: bold;
 }
-.mobile_menu_open_btn, .mobile_menu_close_btn {
+.mobile_menu_open_btn,
+.mobile_menu_close_btn {
   display: none;
 }
 .header_tit {
@@ -268,7 +269,6 @@ header nav ul li a {
 div.banner_container {
   height: 400px;
   background-color: #e9ecef;
-  background-image: url("https://source.unsplash.com/1200x400/");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -525,7 +525,7 @@ main .post_container {
 /* Container - Article - 본문 */
 .article_content .tt_article_useless_p_margin {
   line-height: 2em;
-  font-size: 1.2em;
+  font-size: 1em;
   word-break: break-all;
 }
 .tt_article_useless_p_margin figure.imageblock {
@@ -588,6 +588,9 @@ main .post_container {
   display: block;
   margin-bottom: 5px;
   top: 0;
+}
+.tt_article_useless_p_margin .container_postbtn .postbtn_like {
+  border-radius: 30px;
 }
 
 /* 댓글 쓰기 */
@@ -906,12 +909,14 @@ footer {
 
 @media screen and (max-width: 960px) {
   /* Header */
-  .mobile_menu_open_btn, .mobile_menu_close_btn {
+  .mobile_menu_open_btn,
+  .mobile_menu_close_btn {
     display: block;
     background: inherit;
     border: none;
   }
-  .mobile_menu_open_btn:hover, .mobile_menu_close_btn:hover {
+  .mobile_menu_open_btn:hover,
+  .mobile_menu_close_btn:hover {
     cursor: pointer;
   }
   .mobile_menu_close_btn {
@@ -919,14 +924,10 @@ footer {
     top: 20px;
     right: 15px;
   }
-  .mobile_menu_open_btn svg, .mobile_menu_close_btn svg {
+  .mobile_menu_open_btn svg,
+  .mobile_menu_close_btn svg {
     width: 1.8em;
     height: 1.8em;
-  }
-
-    /* Banner */
-  div.banner_container {
-    background-image: url("https://source.unsplash.com/960x400/");
   }
 
   /* Container - Menu Container */
@@ -941,8 +942,13 @@ footer {
     box-sizing: border-box;
     height: 100vh;
     overflow: scroll;
-    -webkit-mask-image: -webkit-gradient(linear, left top, right top,
-    from(rgba(0,0,0,1)), to(rgba(255,255,255,0.9)));
+    -webkit-mask-image: -webkit-gradient(
+      linear,
+      left top,
+      right top,
+      from(rgba(0, 0, 0, 1)),
+      to(rgba(255, 255, 255, 0.9))
+    );
   }
 
   /* Container - main */
@@ -987,9 +993,6 @@ footer {
   }
 
   /* Banner */
-  div.banner_container {
-    background-image: url("https://source.unsplash.com/720x400/");
-  }
   div.banner_container .banner_tit {
     font-size: 1.8em;
   }
