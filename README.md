@@ -1,18 +1,12 @@
 # MINIMAL SKIN
 
----
-
 TISTORY 커스텀 스킨, MINIMAL 스킨
 
 # 사용 기술
 
----
-
 단순히 html, css, javascript 사용
 
 # Document
-
----
 
 ## 소개
 
@@ -27,8 +21,6 @@ TISTORY 커스텀 스킨, MINIMAL 스킨
 [Release Note](https://memostack.tistory.com/146)
 
 # 라이센스
-
----
 
 ## 폰트 - 스포카 한 산스
 
